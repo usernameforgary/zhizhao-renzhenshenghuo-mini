@@ -1,0 +1,24 @@
+
+<!--pages/authorize/authorize.wxml-->
+<view class='container'>
+  <view class='content'>
+ <view class='logo'>
+    <image src='http://www.yqcoffee.cn/image/show_iogo.png' mode='aspectFill'></image>
+  </view>
+  <view style="width: 400rpx;margin-left:45rpx"> 
+   请授权登录
+  </view>
+  <view>
+    <button class='login-btn margin-right' bindtap='goback' >取消授权</button>
+    <button wx:if="{{s2=='true'}}" class='login-btn' open-type='getUserInfo' bindgetuserinfo="getInfo">授权登录</button>
+    <button wx:else class='login-btn cl' bindtap='showt' >授权登录</button>
+  </view>
+   <view style="text-align: center;">
+       <navigator url="/pages/yhxy/yhxy">
+         <text>请点击阅读并接受</text>
+         <text style="color:red">《用户协议》</text></navigator>
+   </view>
+  </view>
+  
+</view>
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant"/>

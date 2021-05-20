@@ -1,0 +1,104 @@
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant"/>
+<view class="container">
+  <wxs src="../../../utils/tools.wxs" module="tools" />
+  <view wx:if='{{!hasRefund}}' class="status-box" style='justify-content:space-around;padding:0 30rpx;'>
+    <view bindtap="statusTap" class="status-label {{index == currentType ? 'active' : ''}}" wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
+      {{item}}
+      <view class="{{tabClass[index]}}"></view>
+    </view>
+  </view>
+  <scroll-view scroll-y="{{!show}}" style="height: {{scroolHeight}}px;" enable-back-to-top="{{true}}" bindscroll="scroll" lower-threshold="300" bindscrolltolower="scrolltolower">
+  <view class='padding' style='position:relative;z-index:11;'>
+    <navigator class='gocenter' url='/pages/person/coupon_center/coupon_center'>前往领券中心查看更多优惠~~</navigator>
+  </view>
+  <view class="no-order" hidden="{{orderList.length ? true : false}}">
+    <image src="http://www.yqcoffee.cn/image/empty_order.png" class="no-order-img"></image>
+    <view class="text">暂无优惠券</view>
+  </view>
+  <view class="order-list" hidden="{{orderList.length ? false : true}}">
+    <view class="a-order" wx:for-items="{{orderList}}" wx:key="{{index}}">
+      <view class='order-list-c text-center' wx:if="{{item.state=='未使用'}}" style='width:250rpx;height:188rpx;background-image:url(http://www.91taojiao.cn/image/yhq.png);background-size:100%;color:#FF4373;' data-id='{{item.couponid}}'>
+     <view style="display:flex;">
+        <view class='name' style="width:100px;margin-top:10rpx">
+        <view class='l'> <text style='color:#fff;'>{{item.e_price}}</text>
+        <text style='color:#fff;font-size:30rpx;'>元</text>
+           <view style='color:#fff;font-size:22rpx;margin-top: 30rpx'>{{item.remark}}</view>
+          </view>
+        </view>
+            <view style="margin-left: 50rpx;margin-top:30rpx">
+            <view class='c' style=' color:#888;' ><view>{{item.name}}</view></view>
+              <view class='time' style="margin: 40rpx 0 0 30rpx;">{{tools.split(item.starttime)}} -- {{tools.split(item.endtime)}}</view>
+        </view>
+      <view style="margin-top: 100rpx;margin-left: 50rpx;">
+        <navigator url='/pages/goods/index/index' class='' style='width: 121rpx;height: 40rpx;font-size: 22rpx;padding: 5rpx;border: 1px solid #ff6460;text-align: center;border-radius: 10px;color: #ff6460;'>去使用</navigator>
+       </view>
+     </view>
+      </view>
+      <view class='order-list-c text-center' wx:if="{{item.state=='已使用'}}" style='width:250rpx;height:188rpx;background-image:url(http://www.91taojiao.cn/image/yhq.png);background-size:100%;color:#FF4373;' data-id='{{item.couponid}}'>
+     <view style="display:flex;">
+        <view class='name' style="width:100px;margin-top:10rpx">
+          <view class='l'> <text style='color:#fff;'>{{item.e_price}}</text>
+         <text style='color:#fff;font-size:30rpx;'>元</text>
+           <view style='color:#fff;font-size:22rpx;margin-top: 30rpx'>{{item.remark}}</view>
+          </view>
+        </view>
+            <view style="margin-left: 50rpx;margin-top:30rpx">
+            <view class='c' style=' color:#888;' ><view>{{item.name}}</view></view>
+              <view class='time' style="margin: 40rpx 0 0 30rpx;">{{tools.split(item.starttime)}} -- {{tools.split(item.endtime)}}</view>
+        </view>
+      <view style="margin-top: 100rpx;margin-left: 50rpx;">
+          <button class='cu-btn round bg-grey sm' style='width:120rpx;height:40rpx;line-height:40rpx;font-size:22rpx;padding:4rpx;margin:0;'>已使用</button>
+       </view>
+     </view>
+      </view>
+      <view class='order-list-c text-center' wx:if="{{item.state=='已过期'}}" style='width:250rpx;height:188rpx;background-image:url(http://www.91taojiao.cn/image/yhq.png);background-size:100%;color:#FF4373;' data-id='{{item.couponid}}'>
+     <view style="display:flex;">
+        <view class='name' style="width:100px;margin-top:10rpx">
+          <view class='l'> <text style='color:#fff;'>{{item.e_price}}</text>
+         <text style='color:#fff;font-size:30rpx;'>元</text>
+           <view style='color:#fff;font-size:22rpx;margin-top: 30rpx'>{{item.remark}}</view>
+          </view>
+        </view>
+        <view style="margin-left: 50rpx;margin-top:30rpx">
+            <view class='c' style=' color:#888;' ><view>{{item.name}}</view></view>
+              <view class='time' style="margin: 40rpx 0 0 30rpx;">{{tools.split(item.starttime)}} -- {{tools.split(item.endtime)}}</view>
+        </view>
+      <view style="margin-top: 100rpx;margin-left: 50rpx;">
+       <button class='cu-btn round bg-grey sm' style='width:120rpx;height:40rpx;line-height:40rpx;font-size:22rpx;padding:4rpx;margin:0;'>已过期</button>
+       </view>
+     </view>
+      </view>
+      <!-- <view class='order-list-c' wx:elif="{{item.state=='已使用'}}" style='width:630rpx;height:188rpx;background-image:url(http://www.yqcoffee.cn/image/coupon_change.png);background-size:100%;color:#FF4373;' data-id='{{item.couponid}}'>
+        <view class='name'>
+          <view class='l'> <text style='font-weight:bold'>{{item.e_price}}</text><text style='font-size:26rpx;'>元</text>
+            <view style='color:#FF9BB0;font-size:22rpx;'>满{{item.fullprice}}元可使用</view>
+          </view>
+        </view>
+        <view>
+            <view class='c' style='margin-bottom:30rpx;' ><view>{{item.name}}</view></view>
+            <view class='time'>{{tools.split(item.starttime)}} -- {{tools.split(item.endtime)}}</view>
+        </view>
+        <button class='cu-btn round bg-grey sm' style='width:120rpx;height:40rpx;line-height:40rpx;font-size:22rpx;padding:4rpx;margin:0;'>已使用</button>
+      </view> -->
+      <!-- <view class='order-list-c' wx:else style='width:630rpx;height:188rpx;background-image:url(http://www.yqcoffee.cn/image/coupon_change.png);background-size:100%;color:#FF4373;' data-id='{{item.couponid}}'>
+        <view class='name'>
+          <view class='l'> <text style='font-weight:bold'>{{item.e_price}}</text><text style='font-size:26rpx;'>元</text>
+            <view style='color:#FF9BB0;font-size:22rpx;'>满{{item.fullprice}}元可使用</view>
+          </view>
+        </view>
+        <view>
+            <view class='c' style='margin-bottom:30rpx;' ><view>{{item.name}}</view></view>
+            <view class='time'>{{tools.split(item.starttime)}} -- {{tools.split(item.endtime)}}</view>
+        </view>
+        <button class='cu-btn round bg-grey sm' style='width:120rpx;height:40rpx;line-height:40rpx;font-size:22rpx;padding:4rpx;margin:0;'>已过期</button>
+      </view> -->
+    </view>
+  </view>
+  <view style='color:#999;text-align:center;' wx:if="{{hideLoading}}">
+      <van-loading size="20px" style="margin-right:20rpx;"/>加载中...
+    </view>
+    <view style='color:#999;text-align:center;' wx:if="{{!hideLoading&&orderList.length>10}}">
+      我到底了
+    </view>
+  </scroll-view>
+</view>

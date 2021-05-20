@@ -1,0 +1,64 @@
+<!--pages/home/jingxuan/jingxuan.wxml-->
+<wxs src="../../../utils/tools.wxs" module="tools" />
+<view>
+  <view>
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <!-- 搜索框 -->
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="24"></icon>
+          <input type="text" class="weui-search-bar__input" bindinput='search' placeholder="请输入商品名称" />
+        </view>
+      </view>
+      <!-- 搜索按钮 -->
+      <view class="weui-search-bar__cancel-btn" bindtap="shopsearch">
+        搜索
+      </view>
+    </view>
+  </view>
+  <view class="tab-class">
+    <view class="status-box">
+      <view bindtap="statusTap" class="status-label {{index == currentType ? 'active' : ''}}" wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
+        {{item}}
+
+      </view>
+    </view>
+  </view>
+  <!-- 精选商品内容 -->
+  <view class="warp-conten" style="background: #fafafa">
+    <view class="warp-list" wx:for="{{listtime}}" wx:key="{{index}}">
+      <view class="box-img">
+        <image src="{{item.smallimg}}"></image>
+      </view>
+      <view class="box-conten" style="margin-left: 20rpx;">
+        <view>
+          <view class="tite">{{item.name}}</view>
+        </view>
+        <view class="mos-tit pores-tit">
+          <text>限时特价:</text>
+          <text>￥{{tools.fixd2(item.e_price)}}</text>
+        
+
+        </view>
+        <view class="mos-tit tou-bottom">
+          <text>
+           <text>已售:</text>
+          <text>{{item.sellingtimes}}</text>
+          </text>
+          <text>
+          
+          </text>
+          <navigator style="display: inline-block" url="/pages/goods/detail/detail?id={{item.id}}">
+          <text class="tj-shop">立即购买</text>
+          </navigator>
+          
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+  <!-- 点击设置分佣比例 -->
+
+
+</view>

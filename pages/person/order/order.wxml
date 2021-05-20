@@ -1,0 +1,111 @@
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant" />
+<!-- 视频播放 -->
+<video id="playvideo_container" src="{{playVideoSrc}}" bindfullscreenchange="fullscreenchange" class="playvideo-container "></video>
+<view class="container">
+  <wxs src="../../../utils/tools.wxs" module="tools" />
+  <view wx:if='{{!hasRefund}}' class="status-box">
+    <view bindtap="statusTap" class="status-label {{index == currentType ? 'active' : ''}}" wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
+      {{item}}
+      <view class="{{tabClass[index]}}"></view>
+    </view>
+  </view>
+  <scroll-view scroll-y="{{!show}}" style="height: {{scroolHeight}}px;" enable-back-to-top="{{true}}" bindscroll="scroll" lower-threshold="300" bindscrolltolower="scrolltolower">
+    <view class="no-order" hidden="{{orderList.length ? true : false}}">
+      <image src="http://www.yqcoffee.cn/image/empty_order.png" class="no-order-img"></image>
+      <view class="text">暂无订单</view>
+    </view>
+    <view class="order-list" hidden="{{orderList.length ? false : true}}">
+      <view class="a-order" wx:for-items="{{orderList}}" wx:key="{{index}}">
+        <navigator url="/pages/person/order/details/details?id={{item.id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view style='display:flex;justify-content:space-between;padding:20rpx; align-items:center;'>
+            <view>
+              订单:{{item.ordernumber}} >
+              <view>日期:{{item.createdat}}</view>
+            </view>
+            <view style='color:red;font-size:32rpx;'>
+              {{item.tkstates?item.tkstates:item.status}}
+            </view>
+          </view>
+        </navigator>
+        <!-- 商品的内容 -->
+        <view class="order-goods">
+          <block wx:for='{{item.goodslist}}' wx:for-item="og" wx:for-index="ogIndex" wx:key="*this">
+            <view class="item">
+              <van-card num="{{og.num}}" price="{{og.price}}" desc="{{og.testename}}" title="{{og.name}}" thumb="{{og.smallimg}}" />
+              <view class="goods-price" style='padding:20rpx; border-bottom: 1px solid #e7e3e3'>
+                <view class='margin-bottom-sm' wx:if="{{item.e_price}}">
+                  使用{{item.couponnames}}减扣{{item.e_price}}元
+                </view>
+                共 {{item.goodslist.length}} 件商品 合计：
+                <text class="p">¥ {{tools.fixd2(item.sumprice)}}</text>
+              </view>
+              <view class="bot">
+                <navigator url="/pages/person/order/details/details?id={{item.id}}" class="xq">
+                  详情
+                </navigator>
+                <view class="btn-row" wx:if="{{item.status =='已发货'  }}">
+
+                  <navigator class="xq" bindtap='getgoods' data-index="{{item.ordernumber}}" data-ind="{{item.id}}">
+                    确认收货
+                  </navigator>
+                </view>
+                <view class="btn-row" wx:if="{{item.isincoice == 1 && item.status =='已完成'}}">
+
+                  <navigator class="xq" bindtap='getgoods1' data-index="{{item.ordernumber}}" data-ind="{{item.id}}">
+                    已开票
+                  </navigator>
+                </view>
+                           <view class="btn-row" wx:if="{{item.isincoice ==0 && item.status =='已完成'}}">
+
+                  <navigator url="/pages/person/fapiao/fapiao?id={{item.id}}" class="xq" bindtap='getgoods1' data-index="{{item.ordernumber}}" data-ind="{{item.id}}">
+                    申请开发票
+                  </navigator>
+                </view>
+                <!-- <view wx:if="{{og.vide !=''}}" bindtap="playVideo" data-index="{{index}}" data-ogindex="{{ogIndex}}" class="xq">
+                  立即播放
+                </view> -->
+                <!-- <navigator url="/pages/home/classroom/classroom?orderid={{item.id}}" wx:if="{{item.status=='已完成'}}" class="xq">
+                  进入班级
+                </navigator> -->
+                <!-- <navigator url="{{item.ifcomment==='1'?'':'/pages/person/order/evaluate/evaluate?id='+item.id+'&c_img='+item.goodslist[0].smallimg+'&c_name='+item.goodslist[0].name+'&t_img='+item.goodslist[0].teacherererweimaimg+'&t_name='+item.goodslist[0].teacher}}"
+                  wx:if="{{item.status=='已完成'}}" class="xq">
+                  {{item.ifcomment==='0'?'待评价':'已评价'}}
+                </navigator> -->
+              </view>
+            </view>
+          </block>
+        </view>
+        <!-- <view class="goods-info">
+        <view class="goods-des">
+          <view class="remark" wx:if="{{item.remark && item.remark != ''}}">{{item.remark}}</view>
+          <view>{{item.dateAdd}} </view>
+        </view>
+      </view> -->
+        <view class="price-box" style='padding-right:20rpx;'>
+          <view class="btn" hidden="{{item.status=='待付款'? false : true}}" bindtap="cancelOrderTap" data-id="{{item.id}}">
+            取消订单
+          </view>
+          <view class="btn active" hidden="{{item.status=='待付款'? false : true}}" bindtap="toPayTap" data-id="{{item.id}}" data-money="{{item.sumprice}}" data-score="{{item.score}}">
+            马上付款
+          </view>
+          <view class="btn active" hidden="{{(item.status==4) ? false : true}}" bindtap="refundApply" data-id="{{item.id}}" data-amount='{{item.amountReal}}'>
+            退换详情
+          </view>
+          <!-- <view class="btn" hidden="{{(item.status=='退换货') ? false : true}}" bindtap="seelOrderTap" data-id="{{item.id}}">取消退款</view> -->
+          <!-- <navigator url='/pages/person/order/details/details?id={{item.id}}' class="btn" hidden="{{(item.status=='待发货') ? false : true}}" bindtap="seelOrderTap" data-id="{{item.id}}">
+            查看订单
+          </navigator> -->
+          <!-- <view class="btn" hidden="{{(item.status==3) ? false : true}}" bindtap="seelOrderTap" data-id="{{item.id}}">
+            查看物流
+          </view> -->
+        </view>
+      </view>
+    </view>
+    <view style='color:#999;text-align:center;' wx:if="{{hideLoading}}">
+      <van-loading size="20px" style="margin-right:20rpx;" /> 加载中...
+    </view>
+    <view style='color:#999;text-align:center;' wx:if="{{!hideLoading&&orderList.length>10}}">
+      我到底了
+    </view>
+  </scroll-view>
+</view>

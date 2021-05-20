@@ -1,0 +1,79 @@
+<!--pages/invoice/fapiao.wxml-->
+<view>
+  <view class="warp">
+    <view class="tite"> 发票类型</view>
+    <view class="qh">
+      <view wx:for="{{statusType}}" wx:key="key" class="box-tite {{item.indexs==currentTab ?'active': ''}}" data-index='{{index}}' bindtap="active" data-int="{{item.indexs}}">{{item.label}}</view>
+
+    </view>
+
+  </view>
+
+      <view wx-if="{{currentTab==1}}">
+     <view  class="ren">
+       <view>姓名</view>
+        <view><input bindblur="name"></input></view>
+     </view>
+
+       <view  class="ren">
+       <view>电话</view>
+        <view><input bindblur="phone"></input></view>
+     </view>
+       <view  class="ren">
+       <view>电子邮箱</view>
+        <view><input bindblur="eimg"></input></view>
+     </view>
+<view  >
+<button  plain="true" class="button" bindtap="but"   style="background:#000;color:#fff">申请开票</button>
+</view>
+
+      </view>
+   <view wx-if="{{currentTab==2}}">
+    
+           <view  class="ren">
+       <view>单位名称</view>
+        <view><input bindblur="address"></input></view>
+     </view>
+   <view  class="ren">
+       <view>税号</view>
+        <view><input bindblur="dutyname"></input></view>
+     </view>
+
+   <view  class="ren">
+       <view>公司地址</view>
+        <view><input bindblur="titename"></input></view>
+     </view>
+
+
+   <view  class="ren">
+       <view>电话号码</view>
+        <view><input bindblur="phone"></input></view>
+     </view>
+
+
+        <view  class="ren">
+       <view>银行账户</view>
+        <view><input bindblur="bankcard"></input></view>
+     </view>
+
+
+        <view  class="ren">
+       <view>开户银行</view>
+        <view><input bindblur="bankname"></input></view>
+     </view>
+
+
+        <view  class="ren">
+       <view>电子邮箱</view>
+        <view><input bindblur="eimg"></input></view>
+     </view>
+
+
+<view  >
+<button  plain="true" class="button" bindtap="but"   style="background:#000;color:#fff">申请开票</button>
+</view>
+
+
+   </view>
+
+</view>

@@ -1,0 +1,106 @@
+/* pages/person/order/evaluate.wxss */
+
+._center ._p4 ._imglist {
+display: flex;
+position: relative;
+flex-wrap: wrap;
+height: 145rpx;
+color: #a9a7a6;
+line-height: 145rpx;
+margin: 65rpx;
+
+}
+.imglist{
+  display: flex;
+margin: 65rpx;
+color: #a9a7a6;
+
+}
+.inpu{
+  border: 1px solid #ccc;
+border-radius: 10px;
+margin-left: 10px;
+padding-left: 10px;
+
+}
+._t{
+  cursor: auto;
+width: 300px;
+height: 150px;
+display: block;
+position: relative;
+border: 1px solid #ccc;
+border-radius: 10px;
+margin: 0 auto;
+padding: 10px;
+
+}
+._tl{
+  cursor: auto;
+width: 300px;
+height: 150rpx;
+display: block;
+position: relative;
+border: 1px solid #ccc;
+border-radius: 10px;
+margin: 30px auto;
+padding: 10px
+}
+._center ._p4 ._imglist > view {
+  width: 137rpx;
+  height: 137rpx;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+  position: relative;
+}
+._center ._p4 ._imglist > view ._del {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  line-height: 30rpx;
+  text-align: center;
+  font-size: 21rpx;
+}
+._center ._p4 ._imglist > view:nth-child(1),
+._center ._p4 ._imglist > view:nth-child(2),
+._center ._p4 ._imglist > view:nth-child(3) {
+  margin-top: 0;
+}
+._center ._p4 ._imglist > view:nth-child(3n) {
+  margin-right: 0;
+}
+._center ._p4 ._imglist > view._s {
+  background-image: url("http://www.91taojiao.cn/image/zhaopian.jpg");
+}
+._center ._p4 ._tip {
+  position: absolute !important;
+  width: 374rpx !important;
+  height: 21rpx !important;
+  line-height: 21rpx;
+  right: -21rpx;
+  bottom: -1rpx;
+  font-size: 21rpx;
+  color: rgba(91, 91, 91, 1);
+}
+._bottom {
+  width: 160rpx;
+  height: 64rpx;
+  border-radius: 30rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 64rpx;
+  font-size: 25rpx;
+  margin-top: 50rpx;
+  margin-bottom: 56rpx;
+  background: #000;
+float: right;
+margin-right: 70rpx;
+
+}

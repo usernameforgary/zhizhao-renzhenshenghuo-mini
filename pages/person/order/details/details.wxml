@@ -1,0 +1,209 @@
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant"/>
+<view class="container">
+ <wxs src="../../../../utils/tools.wxs" module="tools" />
+    <view class="sec-wrap">
+        <!-- <view class="order-status">
+            <view class="right-text"  wx:if="{{orderDetail.status=='待付款'}}">
+                <view class="status red">{{orderDetail.status}}</view>
+                <view class="des" hidden="">请于11时59分59秒内付款，超时订单将自动关闭</view>
+            </view>
+            <view class="right-text"  wx:if="{{orderDetail.status=='待发货'}}">
+                <view class="status red">已付款</view>
+                <view class="des" hidden="">等待商家发货</view>
+            </view>
+            <view class="right-text text-bold"  wx:if="{{orderDetail.status=='已发货'||orderDetail.status=='已完成'}}">
+              <view class="status " wx:if="{{orderDetail.shipname}}">快递公司：{{orderDetail.shipname}}</view>
+              <view class="des"  wx:if="{{orderDetail.shipnumber}}">快递单号：{{orderDetail.shipnumber}}</view>
+              <view class="status " wx:else>{{orderDetail.status}}</view>
+            </view>
+            <view class="right-text "  wx:if="{{orderDetail.status=='退换货'}}">
+                <view class="status text-bold">退款中</view>
+                <view class="des" hidden="">退款总金额： <text style='font-size:32rpx;color:red;'>￥{{orderDetail.sumprice}}</text> </view>
+            </view>
+        </view> -->
+        <!-- <view style='margin:20rpx 0 0 30rpx ;' wx:if="{{orderDetail.status=='已发货'||orderDetail.status=='退换货'||orderDetail.status=='已完成'}}">
+          <view class="status red">订单：{{orderDetail.ordernumber}}</view>
+          <view class="des" hidden="">日期：{{orderDetail.createdat}}</view>
+        </view> -->
+        <block wx:if="{{1}}">
+          
+          <!-- <view wx:else class="wuliu-box">
+              <view class="icon-box">
+                  <image class="icon" src="/images/order-details/icon-wuliu.png"></image>
+              </view>
+              <view class="right-text">
+                  <view class="order-number">快递单号：{{orderDetail.logistics.trackingNumber}}</view>
+                  <view class="wuliu-text">暂无物流信息</view>
+              </view>
+          </view> -->
+          <view class="address-sec"  wx:if="{{orderDetail.deliverytype==1}}">
+              <view class="icon-box">
+                  <image class="icon" src="http://www.yqcoffee.cn/image/icon-address.png"></image>
+              </view>
+              <view class="right-box">
+                  <view class="name-tel">{{orderDetail.receivingname}}  {{orderDetail.phone}}</view>
+                  <view class="text">
+                    {{orderDetail.provincename}}
+                    {{orderDetail.cityname}}
+                    {{orderDetail.areaname}}
+                    {{orderDetail.address}}
+                  </view>
+              </view>
+          </view>
+          <view class='address-sec' wx:if="{{orderDetail.deliverytype==0}}">
+            自提
+          </view>
+        </block>
+        
+    </view>
+    <view class="goods-list">
+            <view class="list-title">商品信息</view>
+            <form bindsubmit="submitReputation" report-submit="true">
+            <block wx:for="{{orderDetail.goodslist}}" wx:key="{{index}}">
+            <view class="a-goods">
+                <view class="img-box">
+                    <image src="{{item.smallimg}}" class="img" />
+                </view>
+                <view class="text-box">
+                    <view class="arow arow01">
+                        <view class="goods-name">{{item.name}}</view>
+                        <view class="goods-price">¥ {{item.price}}</view>
+                    </view>
+                    <view class="arow">
+                        <view class="goods-label">{{item.testename}}</view>
+                        <view class="goods-num">x {{item.num}}</view>
+                    </view>
+                </view>
+            </view>
+            
+            </block>
+            </form>
+            
+        </view>
+        <view class="goods-info" wx:if="{{orderDetail.status!='退换货'}}">
+            <view class="row-box">
+                <view class="row-label">商品金额</view>
+                <view class="right-text">¥ {{orderDetail.goodsprice}}</view>
+            </view>
+            <view class="row-box" wx:if="{{orderDetail.e_price!=''}}">
+                <view class="row-label">优惠券</view>
+                <view class="right-text" style="background: #c65d4f;color: #fff;padding: 0 8px">{{orderDetail.gradpreferencename}}</view>
+            </view>
+            <view class="row-box" wx:if="{{orderDetail.gradename!='LV0'}}">
+                <view class="row-label">会员折扣 <navigator url='/pages/person/level/level' class="cu-tag bg-red round sm" >{{orderDetail.gradename}}</navigator></view>
+                <view class="right-text">×{{orderDetail.gradpreference}}%</view>
+            </view>
+            <view class="row-box" wx:if="{{orderDetail.deliverytype==1}}">
+                <view class="row-label">运费</view>
+                <view class="right-text">快递 免运费</view>
+            </view>
+            <!-- <view class="row-box" wx:if="{{orderDetail.couponnames}}">
+                <view class="row-label">使用{{orderDetail.couponnames}}</view>
+                <view class="right-text">- ¥ {{orderDetail.e_price}}</view>
+            </view> -->
+            <view class="row-box">
+                <view class="row-label">应付总额</view>
+                <view class="right-text">¥ {{tools.fixd2(orderDetail.sumprice)}}</view>
+            </view>
+            <!-- <view class="row-box">
+                <view class="row-label">姓名</view>
+                <view class="right-text">{{name}}</view>
+            </view> -->
+            <!-- <view class="row-box">
+                <view class="row-label">手机号</view>
+                <view class="right-text">{{phone}}</view>
+            </view> -->
+        </view>
+        <view class='goods-info' style='margin:0 0 0 50rpx;' wx:if="{{orderDetail.status=='退换货'}}">
+          <view>退款原因：{{orderDetail.reason}}</view>
+          <view>退款金额：￥{{orderDetail.sumprice}}</view>
+          <view>退款时间：{{orderDetail.sqcreatedat}}</view>
+        </view>
+        <form  style='margin-bottom: 120rpx;'>
+        <view  class='bbbb' >
+          <view class="btn-row"  wx:if="{{orderDetail.status=='已发货' ||orderDetail.deliverytype==0}}">
+            <button class="confirm-btn" bindtap='getgoods'>确认收货</button>
+          </view> 
+            <view class="btn-row"  wx:if="{{orderDetail.status=='待发货'}}">
+              <button class="confirm-btn"  bindtap="hideModal" data-type='1'>申请退款</button>
+            </view>
+            <!-- <view class="btn-row"  wx:if="{{orderDetail.status=='已发货'||orderDetail.status=='已完成'}}">
+              <button class="confirm-btn"  bindtap="huanhuo">申请换货</button>
+            </view> -->
+            <view class="btn-row"  wx:if="{{orderDetail.tatus=='待发货'||orderDetail.status=='退换货'}}">
+                <!-- <navigator url='/pages/person/consultant1/consultant1' class="confirm-btn">联系客服1</navigator> -->
+                <view  class="confirm-btn"> 退款已提交</view>
+            </view>
+           
+            <!-- <view class="btn-row"  wx:if="{{orderDetail.status=='退换货'}}">
+                <button class="confirm-btn" bindtap="canceltuihuo">取消退款</button>
+            </view> -->
+            <!-- 退换货应该是待发货状态下，用户申请退款可办理退款。已发货状态下不支持退款仅支持换货，用户申请换货，需将货物寄回，输入寄回货物物流方式、物流单号，提交申请。然后对应经销商收到用户寄回的货物后，点击确认换货，输入物流名称、物流单号进行提交。用户的对应订单变更为申请换货成功，您的货物正在路上。 -->
+            <!-- 逻辑改一下，只有待发货状态下的订单接受退款，已发货的订单不支持退换货。这样简单点 -->
+        </view>
+            
+            </form>
+</view>
+
+<view class="cu-modal {{ifshow?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">退款原因</view>
+      <view class="action" bindtap="hideModal">
+        <text class="icon-close text-red jinbohao"></text>
+      </view>
+    </view>
+    <view class=" text-left">
+        <textarea wx:if="{{ifshow}}" placeholder="请输入退款原因" maxlength="-1" disabled="{{modalName!=null}}" placeholder-class="placeholder" class="{{textareaAValue?'value':''}}" bindinput="textareaAInput" style='width:100%;padding:35rpx;font-size:18px;'></textarea>
+      
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-black text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-black margin-left" data-id='{{orderDetail.ordernumber}}' bindtap="hideModal1">确定</button>
+
+      </view>
+    </view>
+  </view>
+</view>
+
+      
+
+
+<view class="cu-modal {{ifshow1?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">换货原因</view>
+      <view class="action" bindtap="huanhuo">
+        <text class="icon-close text-red jinbohao"></text>
+      </view>
+    </view>
+    <view class=" text-left">
+      <textarea wx:if="{{ifshow1}}" placeholder="请输入换货原因" maxlength="-1" disabled="{{modalName!=null}}" placeholder-class="placeholder" class="{{textareaAValue1?'value':''}}" bindinput="textareaAInput1" style='width:100%;padding:35rpx;font-size:16px;height:83px'></textarea>
+       <view>
+        <view style='padding:20rpx;font-size:16px;'>
+          <view style='display:flex; align-items:center;'>
+            <text>快递公司：</text><input class='solid' data-id="{{item.id}}" style='width:222rpx;height:45rpx;' bindinput='shipname'></input>
+          </view>
+          <view class='margin-top' style='display:flex; align-items:center;'>
+            <text>快递单号：</text><input  class='solid' data-id="{{item.id}}" style='width:500rpx;height:45rpx;' bindinput='shipnumber'></input>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-black text-green" bindtap="huanhuo">取消</button>
+        <button class="cu-btn bg-black margin-left" data-id='{{orderDetail.ordernumber}}' bindtap="huanhuo1">确定</button>
+
+      </view>
+    </view>
+  </view>
+</view>
+<view class='jinbohao'>
+<view class="cu-modal {{modalshow?'show':''}}" wx:if="{{modalshow}}" bindtap="hideModalcoupon">
+  <view class="cu-dialog" catchtap>
+    <coupon bindmyevent="hideModalcoupon"/>
+  </view>
+</view> 
+</view>

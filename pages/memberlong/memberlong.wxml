@@ -1,0 +1,43 @@
+<!--pages/bindingshop/bindingshop.wxml-->
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant"/>
+<view class='all' style="margin-top:50%">
+  <!-- <view class='binding'>
+    <image src='{{userInfoImg}}'></image>
+    <text>{{userInfoName}}</text>
+    <text>邀请你成为课程顾问</text>
+  </view> -->
+  <view>
+    <!-- <view class='denglu'>
+      <image src='{{bindingImage[0]}}'></image>
+      <input name="mobile" class="center" placeholder="姓名" placeholder-class="wen" bindinput='changeInput' data-types='name' />
+    </view> -->
+    <!-- <view class='denglu'>
+      <image src='{{bindingImage[1]}}'></image>
+      <input name="mobile" class="center" placeholder="店铺地址" placeholder-class="wen" bindinput='changeInput' data-types='address' />
+    </view> -->
+    <view class='denglu'>
+      <image src='{{bindingImage[2]}}'></image>
+      <input name="mobile" type="number" class="center" maxlength="11" placeholder="请输入常用手机号" placeholder-class="wen" bindinput='changeInput' data-types='phone' />
+    </view>
+    <view class='mima'>
+      <image src='{{bindingImage[3]}}'></image>
+      <input class="center" maxlength="6" placeholder="请输入验证码" placeholder-class="wen" bindinput='changeInput' data-types='code' />
+      <button catchtap="{{codeSubmit?'':'sumbitCode'}}" style="background:{{codeSubmit?'#CFCECD':'#BC9360'}}">{{submitTimeNum>0?'重新获取':'获取验证码'}}{{submitTimeNum>0&&codeSubmit?('('+submitTime+')'):''}}</button>
+    </view>
+  </view>
+  <view class='footer' catchtap='bindingPhone'>
+    <view wx:if="{{!ifskip}}">登录</view>
+    <navigator url='/pages/goods/index/index' wx:else>登录成功</navigator>
+  </view>
+</view>
+<view class='win' wx:if='{{isLogin}}'>
+  <view class='win-top'>
+    <view class='win-title'>
+      请先授权
+    </view>
+    <view class='win-btn'>
+      <button open-type='getUserInfo' bindgetuserinfo="getInfo">登录授权</button>
+    </view>
+  </view>
+</view>
+<van-toast id="van-toast" />

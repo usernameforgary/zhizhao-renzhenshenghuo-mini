@@ -1,0 +1,144 @@
+<!--pages/home/jingxuan/jingxuan.wxml-->
+<wxs src="../../../utils/tools.wxs" module="tools" />
+<view>
+  <view>
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <!-- 搜索框 -->
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="24"></icon>
+          <input type="text" class="weui-search-bar__input" bindinput='search'  placeholder="请输入商品名称" />
+        </view>
+      </view>
+      <!-- 搜索按钮 -->
+      <view class="weui-search-bar__cancel-btn" bindtap="shopsearch">
+        搜索
+      </view>
+    </view>
+  </view>
+  <view class="tab-class">
+    <view class="status-box">
+      <view bindtap="statusTap" class="status-label {{index == currentType ? 'active' : ''}}" wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
+        {{item.NAME}}
+
+      </view>
+    </view>
+  </view>
+  <!-- 精选商品内容 -->
+  <view class="warp-conten" style="background: #fafafa">
+    <view class="warp-list"  wx:for="{{listtime}}"  wx:key="{{index}}">
+      <view class="box-img">
+        <image src="{{item.smallimg}}"></image>
+      </view>
+      <view class="box-conten" style="margin-left: 20rpx;">
+        <view>
+          <view class="tite">{{item.name}}</view>
+        </view>
+        <view class="mos-tit">
+          <text>成本价:</text>
+          <text>￥{{tools.fixd2(item.price)}}</text>
+          <text style="margin-left:40rpx" class="pores-tit">建议零售价:</text>
+          <text class="pores-tit">￥{{tools.fixd2(item.e_price)}}</text>
+            
+        </view>
+        <view class="mos-tit tou-bottom">
+          <text>
+           <text>已售:</text>
+          <text>{{item.sellingtimes}}</text>
+          </text>
+          <text>
+          
+          </text>
+          <text class="tj-shop" bindtap="tapalter" data-name="{{item.name}}" data-e_price="{{tools.fixd2(item.e_price)}}"
+          data-price="{{tools.fixd2(item.price)}}" data-sellingtimes="{{item.sellingtimes}}" data-img="{{item.smallimg}}" 
+          data-img="{{item.smallimg}}"data-shopid="{{item.id}}">添加到店铺</text>
+        </view>
+      </view>
+     
+    </view>
+     
+  </view>
+  <!-- 点击设置分佣比例 -->
+     
+  <view class="mask" wx:if="{{alter}}" >
+    <view style="margin-top:30%">
+      <view>
+        <view class="warp-list" >
+          <view class="box-img">
+            <image src="{{img}}"></image>
+          </view>
+          <view class="box-conten" style="margin-left: 20rpx;">
+            <view>
+              <view class="tite">{{name}}</view>
+            </view>
+            <view class="mos-tit">
+              <text>平台收取费用:</text>
+              <text>￥{{e_price}}</text>
+              <text style="margin-left:40rpx" class="pores-tit">建议零售价:</text>
+              <text class="pores-tit">￥{{price}}</text>
+            </view>
+            <view class="mos-tit tou-bottom">
+              <text>
+           <text>已售：</text>
+              <text>{{sellingtimes}}</text>
+              </text>
+              <text>
+            
+              </text>
+
+            </view>
+          </view>
+
+        </view>
+        <view class="fenyon" style="display:flex">
+          <view style='line-height:45rpx;display:flex;align-items:center;'>
+            <view>商品原价： </view>
+            <input class='text-center' type="digit" bindinput='originalprice' value='{{originalprice}}' placeholder="输入价格"></input>
+            <text>￥</text>
+          </view>
+<view style='line-height:45rpx;display:flex;align-items:center;margin-left: 52rpx;'>
+            <view>本店售价： </view>
+            <input class='text-center' type="digit" bindinput='discountprice' value='{{discountprice}}' placeholder="输入价格"></input>
+            <text>￥</text>
+          </view>
+        </view>
+        <view class="fenyon">
+          <view style='line-height:45rpx;display:flex;align-items:center;'>
+            <view>分销商佣金比例： </view>
+            <input class='text-center' type="digit" bindinput='distributor' value='{{distributor}}'></input>
+            <text>%</text>
+
+          </view>
+
+          <view class="fx-tite ten-text">分销员推荐买家购买后能拿到的佣金比例</view>
+
+        </view>
+        <view class="fenyon">
+          <view style='line-height:45rpx;display:flex;align-items:center;'>
+            <view>分销员佣金比例： </view>
+            <input class='text-center' type="digit" bindinput='distributor1' value='{{distributor1}}'></input>
+            <text>%</text>
+
+          </view>
+
+          <view style="text-align: center;font-size:24rpx" class="ten-text">分销商能拿到的佣金比例</view>
+
+        </view>
+         <view class="fenyon cur">
+          <view style='line-height:45rpx;display:flex;align-items:center;'>
+            <view>我的佣金比例：  <text style="opacity: 0">例</text> </view>
+            <input class='text-center' type="digit" bindinput='mydistributor' value='{{mydistributor}}'></input>
+            <text>%</text>
+
+          </view>
+
+          <view style="text-align: center;font-size:24rpx;margin-left: 60rpx" class="ten-text">注：佣金比例之和须等于100%</view>
+<view> <button bindtap='submit' class="prese">保存</button></view>
+        </view>
+       
+      </view>
+
+    </view>
+  </view>
+
+</view>

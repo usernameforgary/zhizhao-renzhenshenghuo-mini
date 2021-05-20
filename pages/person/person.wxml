@@ -1,0 +1,155 @@
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant" />
+<view class="content">
+  <view wx:if="{{hideBotom}}" class="header" style="height: 190rpx;background: #fafafa;color:#000">
+    <view class='img cu-avatar'>
+      <image class="img" src='http://www.yqcoffee.cn/image/defaultPersonImg.png' type="userAvatarUrl" style='	width: 120rpx;height: 120rpx;border-radius: 100rpx;overflow: hidden;margin-bottom: 20rpx;'></image>
+    </view>
+    <view class='margin-top' style="font-size:20px;" bindtap='onGotUserInfo'>
+      点击登录
+    </view>
+  </view>
+  <view wx:else class="header" style="height: 190rpx;background: #fafafa;color:#000;line-height: 135rpx;">
+    <view class='img cu-avatar'>
+      <open-data class="img" type="userAvatarUrl" style='	width: 120rpx;height: 120rpx;border-radius: 100rpx;overflow: hidden;margin-bottom: 20rpx;'></open-data>
+      <!-- <navigator url='/pages/person/level/level' class="cu-tag bg-red round" >{{grad.gradename}}</navigator> -->
+    </view>
+    <view>
+      <open-data class="name" type="userNickName" style="font-size:35rpx;"></open-data>
+      <!-- <view style='font-size:25rpx;margin-top:25rpx;'>注册时间: {{time}}</view> -->
+    </view>
+  </view>
+  <view class="main">
+    <!--  -->
+    <view class='top' style='background-color:#F2F2F2;border-radius:5px;'  >
+      <view style='padding:25rpx 28rpx;' bindtap='onGotUserInfo' data-url="/pages/person/order/order">
+                  <!-- 我的订单 -->
+            <view class="mar-lists">
+              <view class="margin-left">
+                <image style="width:60rpx;height:62rpx;vertical-align: middle;" src="http://www.91taojiao.cn/rzimg/dind.png"></image>
+                <text class="tite">我的订单</text>
+              </view>
+              <view>
+
+                <text class="tite">></text>
+              </view>
+            </view>
+            <!-- 我的订单结束 -->
+      </view>
+        <!-- 我的优惠券 -->
+          <view style='padding:25rpx 28rpx;' bindtap='onGotUserInfo'>
+            <navigator url='/pages/person/coupon_my/coupon_my'>
+              <view class="mar-lists">
+                <view class="margin-left">
+                  <image style="width:70rpx;height:50rpx;vertical-align: middle;" src="http://www.91taojiao.cn/rzimg/yhq.png"></image>
+                  <text class="tite">我的优惠券</text>
+                </view>
+                <view>
+                  <text style="color:#bbb">{{yhq || 0}}张</text>
+                  <text class="tite">></text>
+                </view>
+              </view>
+            </navigator>
+          </view>
+
+          <!-- 我的优惠券结束 -->
+      <!--领券中心 -->
+          <view style='padding:25rpx 28rpx;'>
+            <navigator url='/pages/person/coupon_center/coupon_center'>
+              <view class="mar-lists">
+                <view class="margin-left">
+                      <image style="width:70rpx;height:60rpx;vertical-align: middle;" src="http://www.91taojiao.cn/rzimg/lqzx.png"></image>
+                  <text class="tite">领券中心</text>
+                </view>
+                <view>
+
+                  <text class="tite">></text>
+                </view>
+              </view>
+            </navigator>
+          </view>
+
+          <!-- 领券中心结束 -->
+
+      
+
+          <!--收获地址 -->
+          <view style='padding:25rpx 28rpx;'>
+            <navigator url='/pages/person/address/address'>
+              <view class="mar-lists">
+                <view class="margin-left">
+                  <image style="width:60rpx;height:50rpx;vertical-align: middle;" src="http://www.91taojiao.cn/rzimg/shdz.png"></image>
+                  <text class="tite">收货地址</text>
+                </view>
+                <view>
+
+                  <text class="tite">></text>
+                </view>
+              </view>
+            </navigator>
+          </view>
+
+          <!-- 收获地址结束 -->
+             <!--会员中心 -->
+          <view style='padding:25rpx 28rpx;'>
+         <navigator url='/pages/logon/logon'>
+              <view class="mar-lists">
+                <view class="margin-left">
+                  <image style="width:60rpx;height:50rpx;vertical-align: middle;" src="http://www.91taojiao.cn/rzimg/hyzx.png"></image>
+                  <text class="tite">会员中心</text>
+                </view>
+                <view>
+
+                  <text class="tite">></text>
+                </view>
+              </view>
+            </navigator>
+          </view>
+
+          <!-- 会员中心结束 -->
+    </view>
+    <view class='c '  style="background-color:#F2F2F2;height:200rpx">
+      <!-- <view class="view" bindtap='onGotUserInfo' data-url='/pages/person/edit/edit'>
+        <van-icon name="user-circle-o" size="26px" color="#999" custom-class="icon" />
+        <view class='text'>信息修改</view>
+      </view> -->
+      <!-- <view class="view" bindtap='onGotUserInfo' data-url='/pages/person/coupon_my/coupon_my'>
+        <van-icon name="coupon-o" size="26px" color="#999" custom-class="icon" />
+        <view class='text'>我的优惠券</view>
+      </view> -->
+      <!-- <view class="view" bindtap='onGotUserInfo' data-url='/pages/person/address/address'>
+        <van-icon name="newspaper-o" size="26px" color="#999" custom-class="icon" />
+        <view class='text'>收货地址</view>
+      </view> -->
+      <!-- <navigator class='view' url='/pages/person/consultant1/consultant1'>
+        <van-icon name="service-o" size="26px" color="#999" custom-class="icon" />
+        <view class='text'>专属顾问</view>
+      </navigator> -->
+      <!-- <view class="view" bindtap='onGotUserInfo' data-url='/pages/person/consultant/consultant' wx:if="{{consultant}}" >
+        <van-icon name="smile-comment-o" size="26px" color="#999" custom-class="icon" />
+        <view class='text'>会员登录</view>
+      </view> -->
+      <!-- <view class="view" bindtap='onGotUserInfo' data-url='/pages/person/coupon_center/coupon_center'>
+        <van-icon name="balance-pay" size="26px" color="#999" custom-class="icon" />
+        <view class='text'>领券中心</view>
+      </view> -->
+      <!-- <view class="view" bindtap='onGotUserInfo' data-url='/pages/person/cart/cart'>
+        <van-icon name="shopping-cart-o" size="26px" color="#999" custom-class="icon" />
+        <view class='text'>我的购物车</view>
+      </view> -->
+      <!-- <view class="view" bindtap='onGotUserInfo' data-url='/pages/logon/logon' wx:if="{{usertype==1}}">
+        <van-icon name="manager-o" size="26px" color="#999" custom-class="icon" />
+        <view class='text'>会员中心</view>
+      </view> -->
+
+    </view>
+  </view>
+</view>
+
+
+<view class='footer'>
+  <view class='Bottom-Tabbar text-center' style='padding-bottom:{{isIphoneX?"34rpx":"0"}};'>
+    <navigator open-type="navigate" url='/pages/goods/index/index'>全部商品</navigator>
+    <navigator open-type="navigate" url='/pages/person/order/order'>订单</navigator>
+    <navigator open-type="navigate" url=''>我的</navigator>
+  </view>
+</view>

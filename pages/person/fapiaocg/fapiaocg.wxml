@@ -1,0 +1,9 @@
+<!--pages/invoice/fapiao.wxml-->
+<view>
+  <view class="warp">
+    <image src="http://www.91taojiao.cn/rzimg/tj.png" class="img"></image>
+     
+   
+  </view>
+  <view class="button" bindtap="wanchen">完成</view>
+</view>

@@ -1,0 +1,102 @@
+/*CSS代码*/
+page{
+  width:100%;
+  height:100%;
+}
+.top-img{
+width: 100rpx;
+height: 100rpx;
+justify-content: space-between
+
+}
+.temp{
+text-align: center;
+padding-top: 25px;
+
+}
+.weather{
+width: 90%;
+margin: 0 auto;
+height: 150rpx;
+border-radius: 10px;
+text-align: center;
+line-height: 60rpx;
+padding: 10rpx 20rpx;
+background: #fff;
+/* box-shadow: 0px 10px 30px 0px; */
+
+}
+.weather-wrapper{
+  background-image: url(http://www.91taojiao.cn/rzimg/bj.jpg);
+  background-size: 100% 100%;
+height: 100%;
+width: 100%;
+
+}
+.shop-tite{
+   font-weight: 600
+}
+.shop-name{
+   font-weight: 600;
+   font-size: 24rpx;
+   color: #383838;
+}
+.box-t{
+  width: 90%;
+  height: 600rpx;
+  background: #fe272a;
+  margin: 20rpx auto
+}
+.img-box{
+  width: 90%;
+  height: 500rpx;
+padding-top: 30rpx;
+margin: 0 auto;
+}
+.img-box image{
+      width: 100%;
+      height: 100%;
+      
+}
+.mingz{
+width: 250rpx;
+height: 50rpx;
+background: #f8ca79;
+border-radius: 20px;
+line-height: 50rpx;
+text-align: center;
+  color: #ff0000;
+  font-size: 24rpx;
+}
+.fle{
+  display: flex;
+  justify-content: space-between;
+padding: 20rpx 30rpx;
+line-height: 50rpx;
+
+}
+.jiag{
+  font-size: 50rpx;
+color: #fff;
+font-weight: 600
+}
+.rwe-img{
+  width: 150rpx;
+  height: 150rpx;
+  margin: 0 auto
+}
+.rwe-img image{
+  width: 100%;
+  height: 100%;
+}
+.bc-img{
+  width: 200rpx;
+  height: 50rpx;
+  color: #ff0000;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+background: linear-gradient(#9d9d9d, #e9d39f);
+}

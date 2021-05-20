@@ -1,0 +1,28 @@
+<!-- pages/person/order/evaluate.wxml -->
+<view class="_page">
+  
+  <view class="_center">
+  
+ 
+    <view class="_p4">
+     
+      <view class="_imglist">
+      <view>店铺头像:</view>
+      <view class="_s" wx:if="{{imagelist.length!==9}}" bindtap="addImg"></view>
+        <view wx:for="{{imagelist}}" style="background-image:url('{{item.path}}')">
+          <!-- <view class="_del" bindtap="delImg" data-index="{{index}}">×</view> -->
+        </view>
+        
+       
+      </view>
+    </view>
+<view class="imglist">
+         <view style="line-height: 50rpx">店铺名称:</view>
+         <input class="inpu"  bindinput="tInput2" placeholder="请输入店铺名称"></input>
+</view>
+
+     <textarea bindinput="tInput" class="_t" value="{{value}}" placeholder="请输入店铺简介...."></textarea>
+      <textarea  bindinput="tInput1"  class="_tl"  placeholder="请输入店铺公告...."></textarea>
+  </view>
+  <button class="_bottom" bindtap="submit">提交</button>
+</view>

@@ -1,0 +1,65 @@
+.invite_img image{
+  width: 100%;
+
+}
+page{
+ background-color: #f8f8f8;
+}
+.foot_one{
+display: flex;
+/* flex-direction: row; */
+align-items: center;
+/* font-size: 28rpx;
+padding-bottom: 20rpx; */
+/* padding-left: 25rpx; */
+/* margin-top: 50rpx; */
+/* position: absolute;
+top: -140rpx;
+left: -100rpx; */
+height: 50px
+}
+.foot_one image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.foot_one text{
+  margin-left: 30rpx;
+  font-size: 12px;
+
+}
+.foot_two{
+  text-align: center;
+}
+.foot_two image{
+  width: 400rpx;
+  height: 400rpx;
+  text-align: center;
+}
+.yaoqing{
+  text-align: center;
+  margin-top:25rpx;
+  font-size: 24rpx;
+  margin-bottom: 25rpx;
+color: #ccc
+}
+.invite_footer{
+background: #fff;
+margin: 0 auto;
+width: 90%;
+border-radius: 10px;
+padding: 10px;
+
+}
+.tit{
+font-size: 26rpx;
+color: #fff;
+background: #8449e6;
+text-align: center;
+width: 400rpx;
+height: 80rpx;
+line-height: 80rpx;
+border-radius: 10px;
+margin: 30rpx auto;
+
+}

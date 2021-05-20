@@ -1,0 +1,31 @@
+<!--pages/money/index/index.wxml结算中心-->
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant" />
+<view class='body'>
+  <view class='header text-center' style='margin-bottom:90rpx;'>
+    <view class='img img1' style='margin-top:100rpx;margin-bottom:35rpx;'>
+      <image src='http://www.yqcoffee.cn/img/saleMan/001settlement.png' style='width:320rpx;height:140rpx;'></image>
+    </view>
+    <text style='font-size:32.3rpx'>可提现金额</text>
+    <view style='font-size:54.2rpx;margin-top:25rpx;'>￥
+      <text style='margin-left:20rpx;'>{{getMoney}}</text>
+    </view>
+  </view>
+  <view class='main'>
+    <navigator url='../withdraw/withdraw' style='margin:0 20rpx 15rpx 20rpx;'>
+      <van-button type="primary" size="large">提现</van-button>
+    </navigator>
+    <view class='text-center text-sm text-gray' style='margin-bottom:20rpx;'>提现会扣除微信平台相关手续费</view>
+    <van-cell-group>
+      <van-cell url="../tradingrecord/tradingrecord" title="收支明细" is-link />
+      <van-cell url="../withdrawrecord/withdrawrecord" title="提现记录" is-link />
+    </van-cell-group>
+  </view>
+  <!-- <view class='footer'>
+    <view class='Bottom-Tabbar text-center' style='padding-bottom:{{isIphoneX?"34rpx":"0"}};'>
+
+      <navigator open-type="navigate" url='/pages/goods/index/index'>全部商品</navigator>
+      <navigator open-type="navigate" url='/pages/person/cart/cart'>购物车</navigator>
+      <navigator open-type="navigate" url='/pages/home/home'>个人中心</navigator>
+    </view>
+  </view> -->
+</view>

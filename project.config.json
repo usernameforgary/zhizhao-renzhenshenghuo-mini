@@ -1,0 +1,140 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.4.4",
+  "appid": "wx3f413f9fd963fc04",
+  "projectname": "videobuy",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "1",
+          "pathName": "pages/administrator/listForPerson1/listMoney/listMoney",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "首页-审核",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "修改信息",
+          "pathName": "pages/person/order/details/details",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "课程顾问",
+          "pathName": "pages/person/person",
+          "query": "id=80",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "登录页",
+          "pathName": "pages/logon/logon",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/goods/detail/detail",
+          "pathName": "pages/goods/detail/detail",
+          "query": "id=2485",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/person/order/order",
+          "pathName": "pages/person/order/order",
+          "query": "id=2485",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/person/person",
+          "pathName": "pages/person/person",
+          "query": "id=2485",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/person/playvideo/playvideo",
+          "pathName": "pages/person/playvideo/playvideo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/person/order/order",
+          "pathName": "pages/person/order/order",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

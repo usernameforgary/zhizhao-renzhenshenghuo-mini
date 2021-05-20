@@ -1,0 +1,275 @@
+/* pages/goods/index/index.wxss */
+.goods_list{
+  padding: 0 33rpx;
+}
+.price{
+  font-size: 37.5rpx;
+}
+.slide-image{
+  width: 100%;
+  height: 400rpx !important;
+}
+#custom-class button{
+  background-color:#333333;
+  color: white;
+  border: 1px solid #333333;
+}
+.toTop{
+  position: fixed;
+  right: 20rpx;
+  /* bottom: 60px; */
+  border: 1px solid #eee;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 15rpx;
+  box-shadow: 1px 1px 4px #eee;
+}
+.cu-modal .cu-dialog{
+  width: 750rpx!important;
+  background-color: rgba(0, 0, 0, 0)!important;
+  bottom:52px;
+}
+/*  */
+/**index.wxss**/
+.conten-warp{
+  background: #fafafa
+}
+.weui-search-bar {
+  position: relative;
+  padding: 8px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  
+
+}
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 6px;
+  top: 2px;
+}
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+          flex: auto;
+  border-radius: 5px;
+  background: #FFFFFF;
+  border: 1rpx solid #E6E6EA;
+}
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+  margin-top: 5px
+}
+.weui-search-bar__input {
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  padding-left: 5px;
+
+}
+.weui-search-bar__cancel-btn {
+  margin-left: 10px;
+  line-height: 28px;
+  color:#252424;
+  white-space: nowrap;
+}
+.border-top{
+  border-top: 1px solid;
+width: 56rpx;
+
+}
+.bor1{
+margin: 3px 0;
+}
+.dp-img{
+  width: 80rpx;
+  height: 80rpx !important;
+ 
+}
+.warp-box{
+  width: 700rpx;
+background: #fff;
+margin: 20rpx auto;
+border-radius: 10px;
+padding-bottom: 90rpx
+
+}
+.warp-dp{
+  display: flex;
+justify-content: space-between;
+padding: 20rpx;
+
+}
+.dp-name{
+  font-weight: 600
+}
+.dp-style{
+  font-size: 12px;
+border: 1px solid #f42929;
+width: 80rpx;
+text-align: center;
+color: #f42929;
+margin-top: 5px;
+}
+.dp-button{
+width: 126rpx;
+height: 44rpx;
+line-height: 44rpx;
+background: #000;
+color: #fff;
+border-radius: 10px;
+text-align: center;
+font-size: 12px;
+
+}
+.boxe{
+width: 700rpx;
+height: 40px;
+margin: 0 auto;
+background: #fff;
+border-radius: 10px;
+
+}
+.shop-dp{
+
+   width: 250rpx;
+   display: inline-block;
+   margin-left: 20rpx;
+
+}
+.shop-dp image{
+  width: 250rpx;
+  height: 230rpx;
+}
+.tite-name{
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+font-weight: 600;
+font-size: 24rpx;
+
+}
+.zkj{
+      overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+width: 115rpx;
+  text-decoration: line-through;
+  display: inline-block;
+  color: #ccc;
+  margin-left: 20rpx;
+justify-content: space-around
+}
+.relay{
+  border: 1px solid #000;
+  color: #000;
+  float: right;
+  margin-right: 40rpx;
+  border-radius: 10px;
+padding: 0 10px;
+font-size: 12px;
+margin-top: 15px;
+height: 44rpx;
+line-height: 40rpx;
+
+}
+.topback{
+  width: 100%;
+  background-color: #000;
+  height: 80rpx;
+  margin-bottom: 0rpx;
+}
+.seleback
+{
+  /* margin-left: 20rpx;
+  margin-right: 0;*/
+  height: 80rpx; 
+  display: flex;
+justify-content: space-between;
+
+}
+.addimgclass
+{
+  width: 120rpx;
+  height: 120rpx;
+  display: inline-block;
+  text-align: center;
+}
+.titlesele{
+  color: white;
+  line-height: 80rpx;
+  border-bottom-style: solid;
+  border-bottom-color: white;
+  border-bottom-width: 4rpx;
+}
+.titlenosele{
+  color: white;
+  line-height: 80rpx;
+}
+.backimg{
+  height: 200rpx;
+  margin-top: 30rpx;
+  margin-bottom: 0;
+  margin-left: 30rpx;
+  width: 300rpx;
+  display: inline-block;
+  background-color: white;
+  border-radius: 16rpx;
+  box-shadow:2rpx 2rpx 2rpx 2rpx rgba(210, 210, 210, 1);
+  position: relative;
+  overflow: hidden;
+}
+.gogdssuperback
+{
+  width: 100%;
+}
+.goodsback{
+  margin-left: 0;
+  margin-right: 0;
+  background-color: green;
+}
+.goodimgs
+{
+  width: 100%;
+  height: 240rpx;
+}
+.tiss{
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+.preseone
+{
+  font-size: 26rpx;
+  display: inline-block;
+  margin-left: 14rpx;
+  height: 60rpx;
+}
+.zkl
+{
+  font-size: 26rpx;
+  display: inline-block;
+  height: 40rpx;
+}
+.lineview
+{
+  width: 100%;
+  height: 60rpx;
+  position: relative;
+  line-height: 60rpx;
+}
+.acimg
+{
+  position: absolute;
+  float: right;
+  bottom: 20rpx;
+  right: 20rpx;
+  width: 30rpx;
+  height: 30rpx;
+}

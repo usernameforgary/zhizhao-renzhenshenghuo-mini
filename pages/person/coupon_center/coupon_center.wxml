@@ -1,0 +1,37 @@
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant"/>
+<view class="container">
+  <wxs src="../../../utils/tools.wxs" module="tools" />
+  <scroll-view scroll-y="{{!show}}" style="height: {{scroolHeight}}px;" enable-back-to-top="{{true}}" bindscroll="scroll" lower-threshold="300" bindscrolltolower="scrolltolower">
+  <view class="no-order" hidden="{{orderList.length ? true : false}}">
+    <image src="http://www.yqcoffee.cn/image/empty_order.png" class="no-order-img"></image>
+    <view class="text">暂无优惠券</view>
+  </view>
+  <view class="order-list" hidden="{{orderList.length ? false : true}}">
+    <view class="a-order" wx:for-items="{{orderList}}" wx:key="{{index}}">
+    <view class='order-list-c text-center' style='width:250rpx;height:188rpx;background-image:url(http://www.91taojiao.cn/image/yhq.png);background-size:100%;color:#FF4373;' data-id='{{item.couponid}}'>
+        <view class='name' style="margin-top: -40rpx;">
+          <view class='l'> <text style='color:#fff;margin-left: 20rpx;'>{{item.price}}</text>
+          <text style='color:#fff;font-size:30rpx;'>元</text>
+          
+            <view style='color:#fff;font-size:22rpx;margin-top: 30rpx'>{{item.remark}}</view>
+          </view>
+        </view>
+ 
+      </view>
+             <view style="background:#fff;height:188rpx">
+            <view class='c' style='margin:30rpx; color:#888' ><view>{{item.name}}</view>
+            </view>
+            <view class='time'>{{tools.split(item.starttime)}} -- {{tools.split(item.endtime)}}</view>
+       
+        <view data-id='{{item.id}}' bindtap='getgoods' class='pl'>点击领取</view>
+         </view>
+    </view>
+  </view>
+  <view style='color:#999;text-align:center;' wx:if="{{hideLoading}}">
+      <van-loading size="20px" style="margin-right:20rpx;"/>加载中...
+    </view>
+    <view style='color:#999;text-align:center;' wx:if="{{!hideLoading&&orderList.length>10}}">
+      我到底了
+    </view>
+  </scroll-view>
+</view>

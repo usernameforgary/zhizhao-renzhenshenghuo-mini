@@ -1,0 +1,151 @@
+<!--推广商品-->
+<wxs src="../../../utils/tools.wxs" module="tools" />
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant" />
+<view class='body' style='margin-bottom:120rpx;background: #fafafa;'>
+
+  <view>
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <!-- 搜索框 -->
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="24" bindtap="scrou"></icon>
+          <input type="text" class="weui-search-bar__input"  bindinput='search' placeholder="请输入商品名称" />
+        </view>
+      </view>
+      <!-- 搜索按钮 -->
+    <navigator url="/pages/goods/shoplist/shoplist">
+    
+      <view class="weui-search-bar__cancel-btn">
+        <view class="border-top" style='margin-top:4px'></view>
+        <view class="border-top bor1"></view>
+        <view class="border-top"></view>
+        商品
+      </view>
+    </navigator>
+    </view>
+  </view>
+  <view class='banner'>
+    <swiper autoplay="{{true}}" circular="{{true}}" style="height:400rpx">
+      <block wx:for="{{bannerList}}" wx:key="*">
+        <swiper-item style="height:100%" >
+          <image id="banner{{index}}" src="{{item.images}}" class="slide-image" mode="widthFix"  bindload="imageLoad"> </image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <scroll-view class="topback" scroll-x scroll-left = "{{ofsetx}}">
+		<view class="seleback">
+		<block wx:for="{{seleArr}}" wx:key="item.id">
+			<view bindtap='topaction' data-index="{{index}}" class="addimgclass" >
+				<label class="{{seleinx == index?'titlesele':'titlenosele'}}">{{item.NAME}}</label>
+
+			</view>
+		</block>
+    </view>
+	</scroll-view> 
+
+  <view class="gogdssuperback">
+  <block wx:for="{{newgoodsarr}}" wx:key="item.id">
+      <!-- <view class="goodsback"> -->
+			<view style="width:{{view.Width}}rpx;height:{{view.Height}}rpx;" data-index="{{index}}" class="backimg" >
+      <navigator url="/pages/goods/detail/detail?id={{item.id}}">
+            <image class="goodimgs"  style="height:{{view.Width}}rpx;" src="{{item.smallimg}}"></image>
+            <view class="tite-name tiss">{{item.name}}</view>
+            <view class="lineview">
+            <view class="preseone" style="color:#f42929">￥{{tools.fixd2(item.e_price)}}</view>
+            <view class="zkj zkl">￥{{tools.fixd2(item.price)}}</view>
+            </view>
+
+            <image class="acimg" src="http://www.91taojiao.cn/rzimg/price.png"></image>
+          
+      </navigator>
+			</view>
+      <!-- </view> -->
+	</block>
+  </view>
+
+  <view style="height:70rpx"></view>
+ 
+<view class="boxe"></view>
+  <!-- hideBotom为true 是经销商、店长、分销员 -->
+  <view class='footer' wx:if="{{hideBotom}}">
+    <view class='Bottom-Tabbar text-center' style='padding-bottom:{{isIphoneX?"34rpx":"0"}};'>
+      <navigator open-type="navigate" wx:if="{{usertype==2}}" url="/pages/home/jingxuan/jingxuan">精选商品</navigator>
+      <navigator open-type="navigate" wx:if="{{usertype==2}}" url="/pages/goods/detail/detailindex">我的店铺</navigator>
+      <navigator open-type="navigate" wx:if="{{usertype==3 }}">首页</navigator>
+         <navigator open-type="navigate" wx:if="{{usertype==4}}">首页</navigator>
+                      <navigator open-type="navigate" wx:if="{{usertype==4}}" url="/pages/goods/fxyindex/wdindex">我的店铺</navigator>
+         <navigator open-type="navigate" wx:if="{{usertype==3}}" url="/pages/goods/toufxuindex/tofxyindex">我的店铺</navigator>
+      <navigator open-type="navigate"  url="/pages/home/order/order">订单</navigator>
+      <navigator open-type="navigate"  url='{{personUrl}}'>我的</navigator>
+    </view>
+  </view>
+  <view class='footer' wx:else>
+    <view class='Bottom-Tabbar text-center' style='padding-bottom:{{isIphoneX?"34rpx":"0"}};'>
+      <navigator open-type="navigate">全部商品</navigator>
+      <!-- <navigator open-type="navigate" url='/pages/person/cart/cart'>购物车</navigator> -->
+       <navigator open-type="navigate" url='/pages/person/order/order'>订单</navigator>
+      <navigator open-type="navigate" url='{{personUrl}}'>我的</navigator>
+    </view>
+  </view>
+</view>
+<van-popup show="{{ show }}" position="bottom" bind:close="onClose" safe-area-inset-bottom="{{false}}">
+  <view style='max-height:{{windowHeight-50}}px;overflow:auto;padding-top:20rpx;'>
+    <view style='background-color:#fff;padding-bottom:{{isIphoneX?"34px":0}};'>
+      <view class="top" style='padding-left:33rpx;position:relative;'>
+        <image style='width:163rpx;height:163rpx;position:relative;top:-20rpx;float:left;margin-right:20rpx;' src='{{ajaxGood.smallimg}}' mode="aspectFill"></image>
+        <view style='display:inline-block;line-height:50rpx;margin-top:20rpx;'>
+          <view>{{ajaxGood.englishname}} {{ajaxGood.name}}</view>
+          <view style='font-size:25rpx;'>¥ <text class='price'>39.00</text>--¥ <text class='price'>329.00</text></view>
+          <view style='font-size:25rpx;'>¥
+            <text class='price'>{{ajaxGood.e_price}}</text>
+          </view>
+        </view>
+        <view style='position:absolute;right:0;top:0;padding:20rpx;' bindtap="onClose">
+          <van-icon name="close" size='25px' />
+        </view>
+      </view>
+      <view class='c' style='clear:both;'>
+        <view class="van-hairline--top-bottom" style='line-height:90rpx;padding-left:55rpx;'>分类</view>
+        <view style='margin:0rpx 50rpx 20rpx 50rpx;'>
+          <block wx:for="{{ajaxGood.tastename}}" wx:key="*">
+            <button class='cu-btn {{index==acticeInxex?"bg-black":"lines-black"}}' data-index='{{index}}' bindtap='changeIndex' style='margin-right:20rpx;margin-top:20rpx;'>{{item.names}}</button>
+          </block>
+        </view>
+        <!--  -->
+        <view style='padding:0 12px' class="van-hairline--top">
+          <van-cell title="购买数量：">
+            <van-stepper value="{{ value1 }}" bind:change="onChange" />
+
+          </van-cell>
+        </view>
+      </view>
+      <view class='bottom' style='margin-top:20rpx;'>
+        <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" id='custom-class' size="large" type="default" style='background-color:#333333;color:white;'>下一步</button>
+      </view>
+    </view>
+  </view>
+</van-popup>
+
+<view class="cu-modal {{modalshow?'show':''}}" wx:if="{{modalshow}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <coupon bindmyevent="hideModal" />
+  </view>
+</view>
+
+<!-- 弹出分享图片 -->
+<view id='imgPop'>
+  <van-popup show="{{show1}}" custom-class="center" transition="none" bind:close="togglePopupclose">
+    <view style='max-height:{{windowHeight}}px;overflow:auto;text-align: center;width:100%;height:100%;'>
+      <canvas style="width: 600rpx; height: 800rpx;margin:auto;" canvas-id="myQrcode"></canvas>
+      <button wx:if="{{!btnloading}}" style='color:black; text-align:center;line-height:83rpx;width:482rpx;margin:auto;margin-top:36rpx;background-color:white;' bindtap='saveImgBtn'>
+        {{openset?'请先授权访问相册':'保存图片'}}
+      </button>
+      <button wx:if="{{btnloading}}" class='bg-black' loading style='color:white; text-align:center;line-height:83rpx;width:482rpx;margin:auto;margin-top:20rpx;' bindtap='saveImgBtn'>
+        保存图片
+      </button>
+    </view>
+  </van-popup>
+</view>
+

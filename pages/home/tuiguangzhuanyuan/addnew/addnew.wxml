@@ -1,0 +1,81 @@
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant"/>
+<view class='all'>
+  <view class='binding'>
+    <view class='image'><open-data class="img" type="userAvatarUrl" style=''></open-data></view>
+    <text>分销商绑定添加</text> 
+  </view>
+  <view>
+    <view class='denglu'>
+      <image src='{{bindingImage[0]}}'></image>
+      <input name="mobile" class="center" placeholder="姓名" placeholder-class="wen" bindinput='changeInput' data-types='name' value='{{name}}'/>
+    </view>
+    <view class='denglu'>
+      <image src='{{bindingImage[2]}}'></image>
+      <input name="mobile" type="number" class="center" maxlength="11" placeholder="请输入手机号" placeholder-class="wen" bindinput='changeInput' data-types='phone' />
+    </view>
+    <view class='denglu'>
+      <image src='{{bindingImage[1]}}'></image>
+      <input name="mobile"  class="center" value="{{address.full_region}}" disabled="true" bindtap="chooseRegion" placeholder="分销区域 (选择省/市/区) (选填)" placeholder-class="wen" />
+    </view>
+    <view class='denglu'>
+      <image src='{{bindingImage[3]}}'></image>
+      <input name="mobile" type="text" class="center" placeholder="公司名称 (选填)" placeholder-class="wen" bindinput='changeInput' data-types='code' />
+    </view>
+    <view class='denglu'>
+      <image src='{{bindingImage[1]}}'></image>
+      <input name="mobile" type="text" class="center" placeholder="公司地址 (选填)" placeholder-class="wen" bindinput='changeInput' data-types='address' />
+    </view>
+    <view class='denglu'>
+      收款方：
+      <radio-group class="margin-tb" bindchange="checkboxChange">
+        <label class="checkbox">
+          <checkbox class='black' value="true" checked=""/> 经销商
+        </label>
+        <label class="checkbox margin-left" >
+          <checkbox class='black' value="false" checked=""/> 分销商
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view style='padding:20rpx 100rpx;'>
+    
+  </view>
+    
+    
+  <view class='footer ' catchtap='bindingPhone'>
+    <view class='text-xxl'>确认添加</view>
+  </view>
+</view>
+<view class='win' wx:if='{{isLogin}}'>
+  <view class='win-top'>
+    <view class='win-title'>
+      请先授权
+    </view>
+    <view class='win-btn'>
+      <button open-type='getUserInfo' bindgetuserinfo="getInfo">登录授权</button>
+    </view>
+  </view>
+</view>
+
+
+<view class="region-select" wx:if="{{openSelectRegion}}">
+      <view class="hd">
+        <view class="region-selected">
+          <view class="item {{item.id == 0 ? 'disabled' : ''}} {{(regionType -1) === index ? 'selected' : ''}}" bindtap="selectRegionType" data-region-type-index="{{index}}" wx:for="{{selectRegionList}}" wx:key="{{item.id}}">{{item.name}}</view>
+        </view>
+        <view class="done {{selectRegionDone ? '' : 'disabled'}}" bindtap="doneSelectRegion">确定</view>
+      </view>
+      <view class="bd">
+        <view class="region-list" wx:if="{{regionType==1}}">
+          <view class="item {{item.selected ? 'selected' : ''}}" bindtap="selectRegion" data-name='{{item.AreaName}}' data-region-index="{{item.AreaID}}" wx:for="{{regionList}}" wx:key="{{item.id}}">{{item.AreaName}}</view>
+        </view>
+        <view class="region-list" wx:if="{{regionType==2}}">
+          <view class="item {{item.selected ? 'selected' : ''}}" bindtap="selectRegion1" data-name='{{item.AreaName}}' data-region-index="{{item.AreaID}}" wx:for="{{regionList}}" wx:key="{{item.id}}">{{item.AreaName}}</view>
+        </view>
+        <view class="region-list" wx:if="{{regionType==3}}">
+          <view class="item {{item.selected ? 'selected' : ''}}" bindtap="selectRegion2" data-name='{{item.AreaName}}' data-region-index="{{item.AreaID}}" wx:for="{{regionList}}" wx:key="{{item.id}}">{{item.AreaName}}</view>
+        </view>
+      </view>
+    </view>
+<van-toast id="van-toast" />
+<view class="bg-mask" bindtap="cancelSelectRegion" wx:if="{{openSelectRegion}}"></view>

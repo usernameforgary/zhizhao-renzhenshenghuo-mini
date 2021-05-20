@@ -1,0 +1,46 @@
+@import "./utils/animate.wxss";
+/* @import "./utils/icon.wxss"; */
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+@import "/dist/common/index.wxss";
+.jinbohao{
+    font-family: "cuIcon";
+    font-size: inherit;
+    font-style: normal;
+}
+.jin-consultant{
+  position:fixed;bottom:50%;font-size:1.5em;right:20rpx;background-image:url(http://www.yqcoffee.cn/image/customerservice.png);background-color:rgba(256,256,256,0.5);z-index:10;
+}
+/* //解决拖拽事件 */
+movable-view {
+    pointer-events: auto; 
+}
+
+movable-area {
+    pointer-events: none;
+}
+/* //底部导航样式 */
+.footer{
+  position: fixed; 
+  bottom: 0;
+  width: 100%;
+  height:103rpx;
+  background-color: #fff;
+}
+.Bottom-Tabbar{
+  /* */
+  
+  
+  display: flex;
+}
+.Bottom-Tabbar navigator{
+  width: 33.33%;
+  height:103rpx;
+  line-height:103rpx;
+  position: relative;
+}
+.navActiveBottom{
+  background-color: #eee;
+}
+.Bottom-Tabbar navigator::before{content:" ";position:absolute;pointer-events:none;box-sizing:border-box;-webkit-transform-origin:center;transform-origin:center;top:0;left:0;right:0;bottom:auto;-webkit-transform:scaleY(.5);transform:scaleY(.5);border-top:1px solid #eee}
+.Bottom-Tabbar navigator:nth-child(1)::after,.Bottom-Tabbar navigator:nth-child(2)::after{content:" ";position:absolute;pointer-events:none;box-sizing:border-box;-webkit-transform-origin:center;transform-origin:center;top:0;left:auto;right:0;bottom:0;-webkit-transform:scaleX(.5);transform:scaleX(.5);border-left:1px solid #eee}

@@ -1,0 +1,72 @@
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant"/>
+<view class="withdraw__wrapper">
+  <wxs src="../../../utils/tools.wxs" module="tools" />
+  <view class="withdraw-account">
+    <view class="withdraw-account__main"  wx:if="{{cardlist.length==0}}">
+      <label class="withdraw-account__label">到账账户</label>
+      <view class="withdraw-account__content" bindtap='skipToAccount'>
+      <view class='' style='position: absolute;top: 4px;right: 0;'><van-icon
+        name="arrow"
+        size="20px"
+        color="#999"
+        custom-class="icon"
+      /></view>
+        <view class="withdraw-account__account">
+        <van-icon
+        name="wechat"
+        size="20px"
+        custom-class="icon"
+        style='position:relative;top:10rpx;color:#4BBA03;'
+      />
+        
+          <open-data style='font-size: 14px;' type="userNickName"></open-data>
+        </view>
+        <view class="withdraw-account__tips">1-3个工作日到账</view>
+      </view>
+    </view>
+    <view class="withdraw-account__main"  wx:else>
+      <label class="withdraw-account__label">到账账户</label>
+      <view class="withdraw-account__content" bindtap='skipToAccount'>
+      <view class='' style='position: absolute;top: 4px;right: 0;'><van-icon
+        name="arrow"
+        size="20px"
+        color="#999"
+        custom-class="icon"
+      /></view>
+        <view class="withdraw-account__account">
+          <text style='font-size: 14px;'>{{cardlist[0].bankname}}</text>
+        </view>
+        <view class="withdraw-account__tips">尾号{{tools.cardnum(cardlist[0].cardnumber)}}  (私)</view>
+      </view>
+    </view>
+  </view>
+  <view class="withdraw-amount">
+    <header class="withdraw-amount__header">
+      提现金额
+    </header>
+    <view class="withdraw-amount__main">
+      <span class="withdraw-amount__symbol">¥</span>
+      <input wx:if="{{getMoney==0}}" type='digit' disabled='{{true}}' class="withdraw-amount__input" value='{{money==0?"":money}}' bindtap='nomoney'></input>
+      <input wx:else type='digit' class="withdraw-amount__input" value='{{money}}' bindinput='setmoney'></input>
+    </view>
+    <footer class="withdraw-amount__footer">
+      <i class="withdraw-amount__tip van-icon van-icon-info-o" style="color: rgb(68, 187, 0);">
+        <!---->
+      </i>
+      <span class="withdraw-amount__tips">可提现金额{{getMoney}}元，</span>
+      <text class="withdraw-amount__all" bindtap='getAllMoney'>全部提现</text>
+      <i class="withdraw-amount__warn van-icon van-icon-warn" style="color: rgb(212, 0, 0);">
+        <!---->
+      </i>
+    </footer>
+  </view>
+  <view class="padding">
+  <button wx:if="{{money==0}}" class="cu-btn block bg-green margin-tb-sm lg" disabled type="">提现</button>
+  <button wx:else class="cu-btn block bg-green margin-tb-sm lg"  bindtap='submit'>提现</button>
+</view>
+  <view class="withdraw-links">
+  <!-- <navigator class='withdraw-links__question' url='/pages/help/help'>相关问题</navigator> -->
+    <!-- <text class="withdraw-links__divider"></text> -->
+    <navigator url='../withdrawrecord/withdrawrecord'>提现记录</navigator>
+  </view>
+</view>

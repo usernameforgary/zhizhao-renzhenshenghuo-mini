@@ -1,0 +1,196 @@
+/* pages/home/jingxuan/jingxuan.wxss */
+.weui-search-bar {
+  position: relative;
+ padding: 8px 15px 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background: #ccc;
+
+
+}
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+          flex: auto;
+  border-radius: 5px;
+  background: #FFFFFF;
+  border: 1rpx solid #E6E6EA;
+}
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 6px;
+  top: 2px;
+}
+.weui-search-bar__input {
+  height: 28px;
+  font-size: 14px;
+  padding-left: 5px;
+
+}
+.weui-search-bar__cancel-btn {
+white-space: nowrap;
+background: #000;
+color: #fff;
+border-radius: 10px;
+
+width: 100rpx;
+text-align: center;
+height: 58rpx;
+line-height: 58rpx;
+position: absolute;
+right: 23rpx;
+z-index: 10
+}
+.border-top{
+  border-top: 1px solid;
+width: 56rpx;
+
+}
+.bor1{
+margin: 3px 0;
+}
+
+.tab-class{
+  background: #ccc;
+}
+.status-box{
+    width:100%;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    background-color: #ccc;
+    color: #fff;
+  
+}
+.status-box .status-label{
+    width: 120rpx;
+    height: 70rpx;
+    text-align: center;
+    font-size:28rpx;
+    color:#353535;
+    box-sizing: border-box;
+    position: relative;
+}
+.status-box .status-label.active{
+    color:#fff;
+    border-bottom: 3rpx solid #fff;
+}
+.no-order{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    top: 88rpx;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-top: 203rpx;
+    background-color: #F2f2f2;
+}
+.warp-list{
+  display: flex;
+  background: #fff;
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+margin-top: 20rpx;
+}
+.cur{
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.box-img image{
+   width: 208rpx;
+  height: 208rpx;
+    border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.tite{
+  font-size: 26rpx;
+  color: #353535;
+  margin-top: 10rpx;
+margin-bottom: 40rpx;
+
+}
+.mos-tit{
+  font-size: 20rpx;
+color: #7e7e7e;
+}
+.pores-tit{
+  color: #fe0000;
+  font-size: 30rpx;
+  
+}
+.tou-bottom{
+  margin-top: 20rpx;
+  line-height: 55rpx;
+}
+.tj-shop{
+  float: right;
+background: #000;
+color: #fff;
+width: 130rpx;
+height: 55rpx;
+text-align: center;
+line-height: 55rpx;
+   border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 220rpx;
+
+}
+.mask{
+background-color: rgba(0,0,0, .2);
+width: 100%;
+height: 100%;
+position: fixed;
+top:1px;
+
+}
+.fenyon{
+  width: 90%;
+margin: 0 auto;
+background: #fff;
+padding: 20rpx 20rpx;
+font-size: 24rpx;
+}
+.text-center{
+  display: inline-block;
+width: 60px;
+height: 23px;
+border: 1px solid #000;
+border-radius: 4px;
+margin-right: 7px;
+font-size: 16rpx;
+
+}
+.fx-tite{
+text-align: right;
+  font-size: 24rpx;
+}
+.prese{
+  background: #000;
+color: #fff;
+width: 118rpx;
+font-size: 24rpx;
+margin-left: 70%;
+margin-top: 20rpx
+}
+.ten-text{
+  margin-top: 15rpx;
+}

@@ -1,0 +1,41 @@
+<!-- pages/person/order/evaluate.wxml -->
+<view class="_page">
+  <view class="_top">
+    <view class="_p1">您对主讲老师满意吗？</view>
+    <view class="_p2">
+      <image class="_pic" src="{{cinfo.t_img}}" />
+      <view class="_name">{{cinfo.t_name}}</view>
+      <view class="_class">{{cinfo.c_name}}</view>
+    </view>
+    <view class="_p3">
+      <view wx:for="{{evaluatelist_1}}" wx:key="{{index}}" data-index="{{index}}">
+        <image bindtap="starTap1" data-index="{{item.index}}" class="_s" src="{{activeindex_1>=item.index?'http://www.91taojiao.cn/image/xx1.png':'http://www.91taojiao.cn/image/xx.png'}}" />
+        <view class="_n">{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="_center">
+    <view class="_p1">您对课程内容满意吗？</view>
+    <view class="_p2">
+      <image class="_s" src="{{cinfo.c_img}}" />
+      <view class="_t">{{cinfo.c_name}}</view>
+    </view>
+    <view class="_p3">
+      <view wx:for="{{evaluatelist_2}}" wx:key="{{index}}" data-index="{{index}}">
+        <image bindtap="starTap2" data-index="{{item.index}}" class="_s" src="{{activeindex_2>=item.index?'http://www.91taojiao.cn/image/xx1.png':'http://www.91taojiao.cn/image/xx.png'}}" />
+        <view class="_n">{{item.label}}</view>
+      </view>
+    </view>
+    <view class="_p4">
+      <textarea bindinput="tInput" class="_t" value="{{value}}" placeholder="课程内容...."></textarea>
+      <view class="_imglist">
+        <view wx:for="{{imagelist}}" style="background-image:url('{{item.path}}')">
+          <!-- <view class="_del" bindtap="delImg" data-index="{{index}}">×</view> -->
+        </view>
+        <view class="_s" wx:if="{{imagelist.length!==9}}" bindtap="addImg"></view>
+        <view class="_tip" wx:if="{{imagelist.length===0}}">上传小朋友作品图片，有机会获得奖励哦</view>
+      </view>
+    </view>
+  </view>
+  <button class="_bottom" bindtap="submit">提交评价</button>
+</view>

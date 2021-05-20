@@ -1,0 +1,21 @@
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant"/>
+<view class='all' style="font-size:0;background:#ebddf7">
+   <view class="invite_img">
+     <image src='http://www.91taojiao.cn/rzimg/yqy1.jpg'></image>
+ 
+   </view>
+   <view class="tit">邀请你一起加入,推广赢奖励</view>
+   <view class='invite_footer'>
+      <view class='foot_one'>
+         <image src='{{userInfo.imgurl}}'></image>
+         <text>{{userInfo.nickname}}</text>
+      </view>
+      <view class='foot_two'>
+         <canvas style="width: 400rpx; height: 400rpx;margin:auto;text-align: center;" canvas-id="myQrcode"></canvas>
+         <!-- <image src=""></image> -->
+      </view>
+      <view class='yaoqing'>
+         <text>扫码申请，成为韧甄生活的合伙人</text>
+      </view>
+   </view>
+</view> 

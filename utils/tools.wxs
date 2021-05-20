@@ -1,0 +1,115 @@
+// var foo = "'hello world' from comm.wxs";
+var bar = function (d) {
+  return d.split(".")[0].split("T");
+}
+var split = function (d) {
+  if(d){
+    return d.split(" ")[0];
+  }
+  
+}
+var goodsid = function (d) {
+  if(d){
+    return d.split("?goodsid=")[1];
+  }
+}
+var bar2 = function (d) {
+  var a = d.split(".")[0].split("T");
+  var b = a[0];
+  var c = a[1].split(":");
+
+  return b + " " + c[0] + ":" + c[1]
+}
+var price1 = function (s) {
+  return parseFloat(s / 100) + "元"
+}
+var addmm = function (s) {
+  if (s.indexOf("mm") > 0) {
+    return s
+  } else if (s.indexOf("m") > 0) {
+    return s
+  } else {
+    return s + "mm"
+  }
+}
+var showTime = function (d) {
+  return d.split(".")[0].replace("T", " ");
+}
+var require1 = function (a, b) {
+  if (a && a == b) {
+    return true;
+  }
+  return false;
+}
+var floatPrice = function (s) {
+  var price=s/100
+  return price.toFixed(2)
+}
+var fixd2 = function (s) {
+  if (s == 0) {
+    return "0.00"
+  }
+  var price = parseFloat(s).toFixed(2)
+  return price
+} 
+var parseI=function(s){
+  return parseInt(s)
+}
+var imgFirst = function (s) {
+  if(s){
+    var imgArr = s.split("|")[0];
+    return imgArr
+  }
+  return
+}
+var imgList = function (s) {
+  if (s) {
+    var imgArr = s.split("|");
+    return imgArr
+  }
+  return
+}
+var cardnum=function(e){
+  var str = e.toString();
+  return str.substring(str.length - 4, str.length)
+}
+var upOrDown = function (e) {
+  if(e){
+    var str = e.toString();
+    if (str.indexOf("+") >= 0) {
+      return "up"
+    } else if (str.indexOf("-") >= 0) {
+      return "down"
+    }
+  }
+  return ""
+}
+var upDownText = function (e) {
+  if (e) {
+    var str = e.toString();
+    if (str.indexOf("+") >= 0) {
+      return str.split("+")[1]
+    } else if (str.indexOf("-") >= 0) {
+      return str.split("-")[1]
+    }
+  }
+  return e||"0.0"
+}
+module.exports = {
+  upDownText: upDownText,
+  upOrDown:upOrDown,
+  parseI: parseI,
+  split: split,
+  cardnum: cardnum,
+  bar: bar,
+  goodsid: goodsid,
+  bar2: bar2,
+  price1: price1,
+  addmm: addmm,
+  require1: require1,
+  showTime: showTime,
+  floatPrice: floatPrice,
+  imgFirst: imgFirst,
+  imgList: imgList,
+  fixd2: fixd2
+};

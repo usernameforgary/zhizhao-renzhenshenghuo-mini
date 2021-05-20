@@ -1,0 +1,88 @@
+/* pages/src/person/index/index.wxss */
+.header{
+				padding-top: 38rpx;
+        padding-left: 45rpx;
+				background-color: #fff;
+				box-shadow: 2px 2px 6px #eee ;
+        color: white;
+			}
+			.header .img{
+        display: inline-block;
+				width: 120rpx;
+        height: 120rpx;
+				border-radius: 100rpx;
+				margin-bottom: 20rpx;
+        float: left;
+        margin-right:50rpx;
+        position: relative;
+			}
+      .header .img .cu-tag{
+        position: absolute;
+        bottom:0;
+        right: -20rpx;
+      }
+			.list{
+				height: 90rpx;
+				line-height: 90rpx;
+				background-color: #fff;
+				padding-left: 20rpx;
+				border-bottom: 1px solid #eee;
+			}
+.lists{
+  text-align: center;
+  display: flex;
+  padding: 28rpx 0 40rpx 0;
+}
+.lists>view{
+  width: 20%;
+  position:relative;
+}
+.view .text{
+  margin-top: 15rpx;
+}
+.lists .t{
+  display:inline-block;
+  position: relative;
+}
+.num{
+  font-size: 30rpx;
+  font-weight: 900;
+  line-height: 45rpx;
+}
+.lists>view{
+  flex-grow: 2;
+}
+.c .text{
+  margin-top: 15rpx;
+}
+.iconfont{
+  -webkit-text-stroke-width:0
+}
+.c .view{
+  margin-bottom: 35rpx;
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+}
+.pj{
+  width: 1.5rem;
+height: 1.6rem;
+
+}
+	.mar-lists{
+
+  line-height: 100rpx;
+display: flex;
+justify-content: space-between;
+background: #fff;
+
+  }
+  .tite{
+    margin-right: 15px;
+  margin-left: 30rpx;
+    color: #6c6969;
+  }
+  .margin-left{
+    margin-left: 30rpx;
+ margin-right: 30rpx;
+  }

@@ -1,0 +1,13 @@
+/* pages/yhxy/用户协议.wxss */
+.tite{
+  text-align: center;
+  font-size: 50rpx
+}
+.tie{
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 30rpx;
+}
+.top{
+  margin-top: 30rpx
+}

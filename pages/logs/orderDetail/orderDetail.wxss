@@ -1,0 +1,39 @@
+
+page{
+  font-size: 30rpx;
+}
+.r{
+  color: #989898;
+}
+.header>view{
+  padding: 0rpx 40rpx;
+}
+.header>view{
+  /* margin-bottom: 12rpx; */
+  line-height: 40rpx;
+}
+.orderTitle+.orderTitle{
+  border-top: 1rpx solid #eee;
+}
+.loading{
+    display: inline-block;
+    margin-right: 12rpx;
+    vertical-align: middle;
+    width: 20rpx;
+    height: 20rpx;
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid #FDD000;
+    border-color: #FDD000 #FDD000 #FDD000 transparent;
+    animation: loading-spin 0.6s linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loading-spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

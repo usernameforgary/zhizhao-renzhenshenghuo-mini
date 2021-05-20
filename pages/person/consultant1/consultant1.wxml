@@ -1,0 +1,26 @@
+<view class="body">
+
+  <view>
+    <image src='http://www.91taojiao.cn/rzimg/shj.jpg' mode="widthFix" style='width:100%;'> </image>
+
+  </view>
+  <view class="rou">
+  <view class="warop">
+    <view class="tite">请输入自动售货机编码</view>
+    <input bindinput="shinput"></input>
+    <view class="buton">
+      <view class="anbut">取消</view>
+      <view class="anbut" bindtap="determine">确定绑定</view>
+    </view>
+  </view>
+  <view class="list">售货机列表</view>
+  <view class="list-ling" wx:for='{{listshj}}'>
+  <view>{{item.id}}</view>
+
+    <view>{{item.machinecode}}</view>
+      <view class="but-jb"  data-index="{{item.machinecode}}" bindtap="relieve">解除绑定</view>
+  </view>
+</view>
+
+
+</view>

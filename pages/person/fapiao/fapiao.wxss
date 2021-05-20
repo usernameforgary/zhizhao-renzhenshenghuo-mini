@@ -1,0 +1,53 @@
+/* pages/invoice/fapiao.wxss */
+.warp{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ccc;
+}
+.qh{
+ display: flex;
+
+justify-content: space-around;
+
+}
+.box-tite{
+  width: 150rpx;
+border: 1px solid #ccc;
+height: 50rpx;
+text-align: center;
+line-height: 50rpx;
+border-radius: 5px;
+margin-left: 20rpx
+}
+.active{
+    color:#fff;
+    background: #000
+
+}
+ .cur{ border-bottom:5rpx solid #36ccf9; color:red;}
+ .ren{
+    width: 90%;
+  margin: 10rpx auto;
+  padding: 20rpx 60rpx;
+   display: flex;
+
+    border-bottom: 1px solid #ccc;
+      justify-content: space-between;
+ }
+input{
+  background: #ccc;
+  border-radius: 10rpx;
+}
+.button{
+  width: 80%;
+  margin: 50rpx auto;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}

@@ -1,0 +1,83 @@
+<!--pages/goods/detail/detailindex.wxml-->
+<wxs src="../../../utils/tools.wxs" module="tools" />
+<view  wx:for="{{warplist}}">
+  <!-- 店铺标题 -->
+  <view class="shop-tite">
+  </view>
+  <view class="tite-warp">
+    <view class="warp-dp">
+      <view style="display:flex">
+        <image class="dp-img" src="{{item.logimg}}" mode="widthFix"></image>
+        <view style="margin-left: 30rpx;">
+          <view class="dp-name">{{item.corporatename}}</view>
+          <view class="dp-style">{{reslst}}款</view>
+        </view>
+<view bindtap='topaction' class="sharebtn" >转发</view>
+      </view>
+
+    </view>
+    <!-- 文字介绍 -->
+    <view class="tite-box">
+      {{item.briefintroduction}}
+    </view>
+    <view class="tite-box gongao">
+      <text>公告：</text>
+      <text>{{item.notice}}</text>
+    </view>
+  </view>
+  <!-- 1 -->
+
+  <view style="margin-top: 100rpx;">
+    <view class="warp-box">
+      <view class="warp-list" wx:for="{{item.replylist}}">
+        <navigator url="/pages/goods/detail/detail?id={{item.id}}">
+          <view class="warp-image">
+            <image src="{{item.smallimg}}"></image>
+
+          </view>
+
+          <view class="tite-name">{{item.name}}</view>
+        </navigator>
+        <view style="padding: 0 10rpx;">
+          <text style="color:#f42929">￥{{tools.fixd2(item.e_price)}}</text>
+          <text class="zkj">￥{{tools.fixd2(item.price)}}</text>
+          <image bindtap="togglePopup" data-index="{{index}}" data-id="{{item.id}}" src="http://www.91taojiao.cn/rzimg/fx.png" class="image"></image>
+        </view>
+
+
+      </view>
+
+
+    </view>
+  </view>
+
+  <!-- 弹出分享图片 -->
+  <view id='imgPop'>
+    <van-popup show="{{ show1 }}" custom-class="center" transition="none" bind:close="togglePopupclose">
+      <view style='max-height:{{windowHeight}}px;overflow:auto;'>
+        <canvas style="width: 451rpx; height: 753rpx;margin:auto;" canvas-id="myQrcode"></canvas>
+        <button wx:if="{{!loading}}" style='color:white; text-align:center;line-height:83rpx;width:482rpx;margin:auto;margin-top:20rpx;background-color:#EB544D;' bindtap='saveImgBtn'>
+          {{openset?'请先授权访问相册':'保存图片'}}
+        </button>
+        <button wx:if="{{loading}}" class='bg-black' loading style='color:white; text-align:center;line-height:83rpx;width:482rpx;margin:auto;margin-top:20rpx;' bindtap='saveImgBtn'>
+          保存图片
+        </button>
+      </view>
+    </van-popup>
+  </view>
+
+  <view id='imgPop'>
+  <van-popup show="{{show2}}" custom-class="center" transition="none" bind:close="togglePopupclose">
+    <view style='max-height:{{windowHeight}}px;overflow:auto;text-align: center;width:100%;height:100%;'>
+      <canvas style="width: 600rpx; height: 800rpx;margin:auto;" canvas-id="myQrcodetwo"></canvas>
+      <button wx:if="{{!btnloading}}" style='color:black; text-align:center;line-height:83rpx;width:482rpx;margin:auto;margin-top:36rpx;background-color:white;' bindtap='saveImgBtntwo'>
+        {{openset?'请先授权访问相册':'保存图片'}}
+      </button>
+      <button wx:if="{{btnloading}}" class='bg-black' loading style='color:white; text-align:center;line-height:83rpx;width:482rpx;margin:auto;margin-top:20rpx;' bindtap='saveImgBtntwo'>
+        保存图片
+      </button>
+    </view>
+  </van-popup>
+</view>
+
+</view>

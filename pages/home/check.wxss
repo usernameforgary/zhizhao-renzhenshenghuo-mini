@@ -1,0 +1,26 @@
+/* pages/home/check.wxss */
+.a,.b,.c,.d{
+  display: inline-block
+}
+.a,.b,.c{
+  margin-right: 20rpx;
+}
+.a{
+  width: 250rpx;
+   overflow: hidden;
+	white-space: wrap;
+	text-overflow: ellipsis
+}
+.cu-tag {
+  /* margin: 0 */
+}
+.text-xl{
+  /* display:flex;
+  flex-wrap:wrap; */
+}
+.c{
+  
+}
+.d{
+   
+}

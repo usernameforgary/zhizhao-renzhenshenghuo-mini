@@ -1,0 +1,32 @@
+<view class='weather-wrapper'>
+  <view class="temp">
+    <image src="http://www.91taojiao.cn/rzimg/tx.png" class="top-img"></image>
+  </view>
+  <view class='weather'>
+    <view>
+      <view class="shop-name">微信昵称某某某 为你推荐</view>
+      <view class="shop-tite">商品名称商品名称商品名称商品名称商品名称</view>
+    </view>
+  </view>
+  <view class="box-t">
+    <view class="img-box">
+      <image src="http://www.91taojiao.cn/rzimg/shop.png"></image>
+    </view>
+    <view class="fle">
+      <view class="mingz">
+        <text>韧甄生活劲爆价</text>
+      </view>
+      <view class="jiag">
+        ￥99.99
+      </view>
+
+    </view>
+  </view>
+
+  <view class="rwe-img">
+       <image src="http://www.91taojiao.cn/rzimg/ewm.png"></image>
+  </view>
+   <view class="bc-img">
+       保存海报
+  </view>
+</view>

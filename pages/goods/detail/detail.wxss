@@ -1,0 +1,332 @@
+.goods_list {
+  padding: 0 33rpx;
+}
+.price {
+  font-size: 37.5rpx;
+}
+#custom-class button {
+  background-color: #333333;
+  color: white;
+  border: 1px solid #333333;
+}
+#imgPop .van-popup {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.van-tabs--line .van-tabs__wrap {
+  /* 标签的样式 */
+  width: 200px !important;
+  margin: auto;
+}
+.aaaaa {
+  border: 1rpx solid #999;
+  color: black;
+  background-color: #fff !important;
+}
+.van-tabs__line {
+  background-color: #000 !important;
+}
+.buy .van-button--danger {
+  background-color: #333;
+  border: 1px solid #333;
+}
+/* pages/authorize/authorize.wxss */
+.container {
+  background-color: #fff !important;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 11111;
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.logo {
+  width: 150rpx;
+  height: 150rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100rpx;
+}
+.logo image {
+  width: 100%;
+  height: 100%;
+  border-radius: 100rpx;
+}
+.login-btn {
+  width: 200rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: white;
+  background: black;
+  font-weight: bold;
+}
+.login-btn::after {
+  border: 0;
+}
+.cu-modal .cu-dialog {
+  width: 750rpx !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  bottom: 52px;
+}
+/* 手机验证码 */
+.mima {
+  padding: 0 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 22rpx 0 22rpx;
+  padding-top: 24rpx;
+  padding-bottom: 12rpx;
+  border-bottom: 1px solid lightgrey;
+}
+.mima input {
+  margin-left: 40rpx;
+  font-size: 35rpx;
+}
+.mima image {
+  width: 45rpx;
+  height: 40rpx;
+}
+.mima button {
+  font-size: 28rpx;
+  color: white;
+  min-width: 200rpx;
+  line-height: 68rpx;
+  margin-bottom: 10rpx;
+  padding: 0 20rpx;
+}
+.denglu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 50rpx;
+  margin: 0 22rpx 0rpx 22rpx;
+  padding-top: 20rpx;
+  padding-bottom: 12rpx;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+}
+.denglu input {
+  margin-left: 40rpx;
+  font-size: 35rpx;
+}
+.denglu image {
+  width: 40rpx;
+  height: 45rpx;
+}
+
+.video {
+  width: 100%;
+  height: 90%;
+}
+
+.status-box {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+.status-box .status-label {
+  width: 150rpx;
+  height: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #353535;
+  box-sizing: border-box;
+  position: relative;
+}
+.status-box .status-label.active {
+  color: #e64340;
+  border-bottom: 6rpx solid #e64340;
+}
+
+.tite {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 40rpx;
+}
+.cakn {
+  background: linear-gradient(90deg, #ff4e50, #f9a623);
+  width: 650rpx;
+  height: 60rpx;
+  margin: 0 auto;
+  padding: 10rpx;
+  display: flex;
+  /* justify-content: space-between; */
+  border-radius: 10rpx;
+  line-height: 45rpx;
+}
+.class-chen {
+  color: #fff;
+}
+image {
+  width: 20px;
+  height: 20px;
+}
+._plitem {
+  width: 630rpx;
+  background: rgba(239, 239, 239, 1);
+  border-radius: 5rpx;
+  box-sizing: border-box;
+  padding: 5rpx 35rpx 30rpx 16rpx;
+  margin: 0 auto;
+  margin-top: 36rpx;
+  border-radius: 5px;
+}
+._plitem:last-child {
+  margin-bottom: 10rpx;
+}
+._plitem ._top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 19rpx;
+}
+._plitem ._top > ._s {
+  display: block;
+  width: 56rpx;
+  height: 56rpx;
+  margin-right: 18rpx;
+  border-radius: 50%;
+}
+._plitem ._top ._name {
+  width: 193rpx;
+  margin-right: 20rpx;
+  font-size: 21rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+._plitem ._top ._li {
+  display: flex;
+  align-items: center;
+  margin-right: 42rpx;
+}
+._plitem ._top ._li ._s {
+  display: block;
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+}
+._plitem ._top ._li ._s:last-child {
+  margin-right: 0;
+}
+._plitem ._top ._t {
+  font-size: 17rpx;
+  color: rgba(0, 0, 0, 1);
+}
+._plitem ._center {
+  font-size: 21rpx;
+  color: rgba(80, 80, 80, 1);
+  line-height: 30rpx;
+  text-indent: 2em;
+}
+._plitem ._bottom {
+  display: flex;
+  flex-wrap: wrap;
+}
+._plitem ._bottom ._s {
+  display: block;
+  width: 168rpx;
+  height: 168rpx;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+.fx-price{
+width: 60rpx;
+height: 60rpx;
+text-align: center;
+border-radius: 50%;
+background: #f47007;
+color: #fff;
+margin-left: 50rpx;
+position: adsolute;
+z-index: 1;
+line-height: 60rpx;
+font-size: 38rpx;
+
+}
+.fx-magpr{
+width: 137rpx;
+height: 44rpx;
+border-radius: 20px;
+background: #de1010;
+color: #fff;
+text-align: center;
+line-height: 44rpx;
+margin-top: 9rpx;
+margin-left: -10px;
+padding-left: 10px;
+
+
+}
+.freight{
+  height: 33px;
+line-height: 33px;
+/* padding-left: 25rpx; */
+display: flex;
+justify-content: space-between;
+padding: 0 40rpx;
+
+
+}
+.tite-col{
+  font-size: 24rpx;
+  color: #ccc;
+  margin-left: 40rpx;
+}
+.tite-col2{
+  margin-top: 6px;
+background: #000;
+text-align: center;
+color: #fff;
+width: 100rpx;
+height: 44rpx;
+line-height: 44rpx;
+border-radius: 20px;
+
+}
+.dp-img{
+  width: 80rpx;
+height: 80rpx;
+border-radius: 50%;
+border: 1px solid;
+
+}
+.freight1{
+padding: 20rpx 40rpx;
+margin-top: 10px;
+display: flex;
+justify-content: space-between;
+}
+.shop-in{
+height: 50rpx;
+border: 1px solid;
+width: 90rpx;
+text-align: center;
+border-radius: 10px;
+line-height: 50rpx;
+
+}
+.cope{
+  width: 140rpx;
+font-weight: 600;
+
+}

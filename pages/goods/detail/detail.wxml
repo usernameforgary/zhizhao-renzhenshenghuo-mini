@@ -1,0 +1,261 @@
+<!-- 推广商品 -->
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant" />
+<wxs src="../../../utils/tools.wxs" module="tools" />
+<view class='body'>
+  <view class='header text-center' style='margin-bottom:10rpx;position:relative; height: 350px;'>
+    <swiper indicator-dots="{{indicatorDots}}" current="{{current}}" bindchange="changeSwiper" autoplay="{{ajaxData.shortvideo?false:autoplay}}" interval="{{interval}}" duration="{{duration}}" style='height:400px;'>
+      <block>
+        <block wx:if="{{ajaxData && ajaxData.shortvideo}}">
+          <swiper-item>
+            <video class="video" id="shortvideo" play-btn-position="center" src="{{ajaxData.shortvideo}}" object-fit="cover" poster="{{ajaxData.videocove}}"></video>
+          </swiper-item>
+        </block>
+        <swiper-item wx:for="{{tools.imgList(ajaxData.imgurl)}}" wx:key="*">
+          <image src="{{item}}" class="slide-image" style='width:100%;height:90%;' />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view wx:if="{{!ajaxData.shortvideo || ( current>0 )}}" style='position:absolute;bottom:20rpx;right:40rpx;'>
+      <van-tag class="demo-margin-right" round>
+        {{current+ (ajaxData.shortvideo?0:1) }}/{{tools.imgList(ajaxData.imgurl).length}}
+      </van-tag>
+    </view>
+  </view>
+  <view class='main' style='margin-bottom:100rpx;'>
+    <view class="top" style='padding-left:33rpx;display:flex;justify-content:space-between;'>
+      <view style='display:inline-block;line-height:50rpx;margin-top:20rpx;'>
+        <view style='font-size:25rpx;color:#de1010;font-weight:900;display:flex'>
+          <view class='price'>¥{{ajaxData.e_price}}</view>
+          <!-- <text class="fx-price">￥</text> -->
+          <!-- <view class="fx-magpr">
+            <text style="font-size:20rpx">赚</text>
+            <text style="font-size:27rpx;margin-left:10rpx">{{ajaxData.commissionavailable}}</text>
+          </view> -->
+          <!-- <text style='padding-left:20rpx;' wx:if="{{ajaxData.e_price!=ajaxData.price}}">
+            <text>1111</text>
+          
+          </text> -->
+                 <text style='font-size:32rpx;text-decoration: line-through;color:#ccc;margin-left: 20rpx'>¥{{ajaxData.price}}</text>
+        </view>
+ 
+     
+        <view style='color:#ccc;font-size:28rpx;'>{{ajaxData.name}}</view>
+   <view style='font-size:28rpx;color:#ccc'>{{ajaxData.synopsis}}</view>
+      </view>
+      <view style='float:right;padding:20rpx;' bindtap="togglePopup">
+        <van-icon name="share" size='25px' color="red" />
+        <view class='text-sm text-center text-red'>分享</view>
+      </view>
+    </view>
+    <navigator class="cakn" wx:if="{{ma}}" url="/pages/home/classroom/class?orderid={{ordId}}">
+      <image src="http://www.91taojiao.cn/image/xiaoxi.png" class="class-chen" style="margin-left: 10px;margin-top:3px"></image>
+      <text class="class-chen" style="margin-left: 10px">进入课程交流群</text>
+      <text class="class-chen" style="margin-left: 250rpx">查看            ></text>
+    </navigator>
+    <!-- top结束 -->
+
+    <view style='background-color:#F8F8F8;height:20rpx;'></view>
+    <view class="freight">
+      <view>
+        <text>运费</text>
+        <text class="tite-col">免运费</text>
+      </view>
+    </view>
+
+    <!-- <van-cell-group>
+      <van-cell bind:click="onClose" title="选择口味" is-link />
+    </van-cell-group> -->
+
+    <view class="freight" bindtap="onClose">
+      <view>
+        <text>规格</text>
+        <text class="tite-col">选择颜色与分类</text>
+      </view>
+      <view>></view>
+    </view>
+    <!-- 选择口味结束 -->
+    <view class="freight1">
+
+      <view style="display:flex">
+        <view>
+          <image src="http://www.91taojiao.cn/rzimg/dp.jpg" class="dp-img"></image>
+        </view>
+        <view style="margin-left:20rpx;">
+          <view>{{ajaxData.shopname}}</view>
+          <view class="tite-col2">官方</view>
+        </view>
+
+      </view>
+      <navigator url="/pages/goods/fxyindex/fxyindex?id={{ajaxData.distributorid}}"> 
+      <view class="shop-in"  data-index="{{ajaxData.distributorid}}">进店</view>
+      </navigator>
+    </view>
+
+    <view>
+      <view style='background-color:#F8F8F8;height:20rpx;'></view>
+      <!-- <view class="tite">
+        <view class="status-box" style='justify-content:space-around;padding:0 30rpx;'>
+          <view bindtap="statusTap" class="status-label {{index == currentType ? 'active' : ''}}" wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
+            {{item}}
+            <view class="{{tabClass[index]}}"></view>
+          </view>
+        </view>
+      </view> -->
+      <view class="content" wx:if="{{currentType==0}}">
+        <image wx:for="{{tools.imgList(ajaxData.synopsisimg)}}" wx:key="*" src='{{item}}' style='width:100%;' mode='widthFix'></image>
+      </view>
+      <view class="content" wx:if="{{currentType==1}}">
+        <image wx:for="{{tools.imgList(ajaxData.classperformanceimg)}}" wx:key="*" src='{{item}}' style='width:100%;' mode='widthFix'></image>
+      </view>
+      <view class="content" wx:if="{{currentType==2}}">
+        <view class="_plitem" wx:for="{{pzlist}}">
+          <view class="_top">
+            <image class="_s" src="{{item.userimgurl}}" />
+            <view class="_name">{{item.nickname}}</view>
+            <view class="_li">
+              <image wx:for="{{evaluatelist}}" class="_s" wx:for-item="zitem" src="{{item.score>=zitem.index?'http://www.91taojiao.cn/image/xx1.png':'http://www.91taojiao.cn/image/xx.png'}}" />
+            </view>
+            <view class="_t">{{evaluatelist[item.score-1].label}}</view>
+          </view>
+          <view class="_center">{{item.content}}</view>
+          <view class="_bottom">
+            <view class="_s" wx:if="{{sitem}}" data-src="{{sitem}}" data-index="{{index}}" bindtap="previewImage" wx:for="{{item.imgurl}}" wx:for-index="sindex" class="_s" wx:for-item="sitem" style="background-image:url('{{sitem}}')"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 商品详情结束 -->
+  </view>
+  <!-- mian结束 -->
+  <view class='buy' style='position:fixed;bottom:{{isIphoneX?"34px":0}};width:100%;z-index:1'>
+    <view class="">
+      <!-- <button style='height:90rpx;line-height:90rpx;' class="bg-red submit" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">立即购买</button> -->
+      <view class="cu-bar bg-white tabbar border shop van-hairline--top">
+        <navigator url='/pages/goods/index/index' class="action">
+          <view class="icon-home  jinbohao">
+            <!-- <view class="cu-tag badge"></view> -->
+          </view>
+          首页
+        </navigator>
+           <navigator url="/pages/person/kefu/kefu">
+        <view class="action">
+          <view class=" jinbohao">
+            <image src="http://www.91taojiao.cn/rzimg/kf.png" style="margin-bottom: 10rpx"></image>
+          </view>
+          客服
+        </view>
+         </navigator>
+        <!-- <navigator style="width: 115px">
+          <view class="bg-white submit" data-index='1' bindtap='onGotUserInfo'>加入购物车</view>
+        </navigator> -->
+        <!-- <view class="bg-black submit" bindlongpress ='copy' data-copy='{{ajaxData.taobaopassword}}'  style="background:#ccc;color:#fff">
+          <text class="cope">长按复制去淘宝购买</text>
+        </view> -->
+        <view class="bg-black submit" data-index='2' bindtap='onGotUserInfo' style="background:#000;font-weight:600">
+          立即购买
+        </view>
+
+
+      </view>
+    </view>
+    <!-- <van-submit-bar
+    price=""
+    button-text="立即购买1"
+    bind:submit="onClickButton"
+    custom-class="van-submit-bar"
+    safe-area-inset-bottom="{{ false }}"
+  /> -->
+  </view>
+</view>
+<van-popup show="{{ show }}" position="bottom" bind:close="onClose" safe-area-inset-bottom="{{false}}">
+  <view style='max-height:{{windowHeight-50}}px;overflow:auto;padding-top:20rpx;'>
+    <view style='background-color:#fff;padding-bottom:{{isIphoneX?"34px":0}};'>
+      <view class="top" style='padding-left:33rpx;position:relative;'>
+        <image style='width:163rpx;height:163rpx;position:relative;top:-20rpx;float:left;margin-right:20rpx;' src='{{tools.imgFirst(ajaxData.imgurl)}}' mode="aspectFill"></image>
+        <view style='display:inline-block;line-height:50rpx;margin-top:20rpx;'>
+          <view>{{ajaxData.englishname}} {{ajaxData.name}}</view>
+          <!-- <view style='font-size:25rpx;'>¥ <text class='price'>39.00</text>--¥ <text class='price'>329.00</text></view> -->
+          <view style='font-size:25rpx;'>
+            ¥
+            <text class='price'>{{ajaxData.e_price}}</text>
+          </view>
+        </view>
+        <view style='position:absolute;right:0;top:0;padding:20rpx;' bindtap="onClose">
+          <van-icon name="close" size='25px' />
+        </view>
+      </view>
+      <view class='c' style='clear:both;margin-bottom:{{isIphoneX?"134px":"100rpx"}};'>
+        <view class='c' style='clear:both;margin-bottom:{{isIphoneX?"134px":"100rpx"}};'>
+        <view style='margin:0rpx 20rpx 20rpx 20rpx;'>
+          <view class="van-hairline--top-bottom" style='line-height:90rpx;padding-left:22rpx;'>分类</view>
+          <block wx:for="{{ajaxData.specifications}}" wx:key="*">
+            <button class='cu-btn {{index==acticeInxex?"bg-black":"aaaaa"}}' style='' data-index='{{index}}' data-name='{{index}}' bindtap='changeIndex' style='margin-right:20rpx;margin-top:20rpx;'>{{item.names}}</button>
+          </block>
+        </view>
+
+        <view style='padding:0 12px' class="van-hairline--top">
+          <van-cell title="购买数量：">
+            <van-stepper value="{{ value1 }}" bind:change="onChange" />
+          </van-cell>
+        </view>
+      </view>
+        <!-- <view>{{phoneValue}}</view> -->
+        <!-- <view class="van-hairline--top-bottom" style='line-height:90rpx;padding-left:22rpx;'>
+     <input class="van-hairline--top-bottom"  placeholder="请输入手机号"  bindblur="phoneInput"></input>
+    </view> -->
+   
+        <!--  -->
+      
+      </view>
+      <view class='bottom' style='position:fixed;bottom:{{isIphoneX?"34px":0}};width:100%;z-index:1'>
+        <!-- <button  lang="zh_CN" bindtap="onClickButton" id='custom-class' size="large" type="default" style='background-color:#333333;color:white;'>下一步</button> -->
+        <view class="cu-bar bg-white tabbar border shop van-hairline--top">
+          <navigator url='/pages/goods/index/index' class="action">
+            <view class="icon-home  jinbohao">
+              <!-- <view class="cu-tag badge"></view> -->
+            </view>
+            首页
+          </navigator>
+      <view class="action">
+            <view class=" jinbohao">
+              <image src="http://www.91taojiao.cn/rzimg/kf.png" style="margin-bottom: 10rpx"></image>
+            </view>
+            客服
+          </view>
+           <view class="bg-black submit" style="background:#ccc;">
+            <text class="cope">长按复制去淘宝购买</text>
+          </view>
+          <view class="bg-black submit" data-index='2' bindtap='onGotUserInfo'>立即购买</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</van-popup>
+<!-- 弹出分享图片 -->
+<view id='imgPop'>
+  <van-popup show="{{ show1 }}" custom-class="center" transition="none" bind:close="togglePopup">
+    <view style='max-height:{{windowHeight}}px;overflow:auto;'>
+      <canvas style="width: 451rpx; height: 753rpx;margin:auto;" canvas-id="myQrcode"></canvas>
+      <button wx:if="{{!loading}}" style='color:white; text-align:center;line-height:83rpx;width:482rpx;margin:auto;margin-top:20rpx;background-color:#EB544D;' bindtap='saveImgBtn'>
+        {{openset?'请先授权访问相册':'保存图片'}}
+      </button>
+      <button wx:if="{{loading}}" class='bg-black' loading style='color:white; text-align:center;line-height:83rpx;width:482rpx;margin:auto;margin-top:20rpx;' bindtap='saveImgBtn'>
+        保存图片
+      </button>
+    </view>
+  </van-popup>
+</view>
+<!-- <view class='container' wx:if='{{isLogin}}'>
+  <view class='content'>
+    <view class='logo'>
+    <image src='http://www.yqcoffee.cn/image/show_iogo.png' mode='aspectFill'></image>
+  </view>
+  <button class='login-btn' open-type='getUserInfo' bindgetuserinfo="getInfo" >登录授权</button>
+  </view>
+  
+</view> -->
+<view class="cu-modal {{modalshow?'show':''}}" wx:if="{{modalshow}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <coupon bindmyevent="hideModal" />
+  </view>
+</view>

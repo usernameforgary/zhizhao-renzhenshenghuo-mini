@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+ <!--登录头部-->
+ <view class='aaaa' style='height:{{statusBarHeight}}px'></view>
+		<navigator url='../money/index/index'>首页</navigator>
+				
+			
+    <van-button type="primary" class="demo-margin-right">主要按钮</van-button>
+</view>
+<jin-consultant my-class="cu-avatar round lg margin-xs shadow jin-consultant"/>
